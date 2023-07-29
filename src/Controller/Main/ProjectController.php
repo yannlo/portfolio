@@ -1,12 +1,18 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Main;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/projets', name: 'app_project_', methods:["GET"])]
+#[Route([
+        "en" => "/my-projects",
+        "fr" => "/mes-projets",
+    ],
+    name: 'app_project_',
+    methods:["GET"]
+)]
 class ProjectController extends AbstractController
 {
     #[Route(name: 'list')]

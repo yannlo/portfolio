@@ -1,12 +1,18 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Main;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route("/designs", name:"app_design_", methods:["GET"])]
+#[Route([
+        "en" => "/my-designs",
+        "fr" => "/mes-designs",
+    ],
+    name:"app_design_",
+    methods:["GET"]
+)]
 class DesignController extends AbstractController
 {
     #[Route(name: 'list')]
