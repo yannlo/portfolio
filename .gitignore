@@ -26,8 +26,12 @@ npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
-
 ###> domain/files-loading ###
 /public/images/
 /public/documents/
 ###< domain/files-loading ###
+
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###

@@ -26,7 +26,7 @@ class HandleCurrentLocale
         $currentLocale = $this -> request->cookies -> get('currentLocale');
         $response = new Response();
 
-        if($session -> get("previousRouteName") == $currentRouteName){            
+        if ($session -> get("previousRouteName") == $currentRouteName) {
             $response->headers->setCookie(
                 Cookie::create('currentLocale')
                     ->withValue($this -> request->getLocale())
@@ -34,8 +34,7 @@ class HandleCurrentLocale
                     // ->withDomain('.example.com')
                     ->withSecure(true)
             );
-        } 
-        elseif (!is_null($currentLocale) && $this -> request->getLocale() !== $currentLocale){
+        } elseif (!is_null($currentLocale) && $this -> request->getLocale() !== $currentLocale) {
             $currentRouteParams["_locale"] = $currentLocale;
             $response = new RedirectResponse($this->router->generate($currentRouteName, $currentRouteParams));
         }

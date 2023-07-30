@@ -9,7 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ContactController extends AbstractController
 {
-    #[Route([
+    #[Route(
+        [
             "en" => "/{_locale}/contact-me",
             "fr" => "/{_locale}/contactez-moi",
         ],
@@ -21,10 +22,9 @@ class ContactController extends AbstractController
     )]
     public function index(
         HandleCurrentLocale $handleCurrentLocale
-    ): Response
-    {
+    ): Response {
         $response = $handleCurrentLocale();
-        
+
         return $this->render('main/contact/index.html.twig', response: $response);
     }
 
@@ -33,5 +33,4 @@ class ContactController extends AbstractController
     {
         return $this -> redirectToRoute("app_contact");
     }
-    
 }

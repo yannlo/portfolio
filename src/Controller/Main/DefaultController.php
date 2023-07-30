@@ -6,7 +6,6 @@ use App\Service\HandleCurrentLocale;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class DefaultController extends AbstractController
@@ -21,10 +20,9 @@ class DefaultController extends AbstractController
     )]
     public function index(
         HandleCurrentLocale $handleCurrentLocale
-    ): Response
-    {
+    ): Response {
         $response = $handleCurrentLocale();
-        
+
         return $this->render('main/default/index.html.twig', [], $response);
     }
 
@@ -41,8 +39,7 @@ class DefaultController extends AbstractController
     )]
     public function about(
         HandleCurrentLocale $handleCurrentLocale
-    ): Response
-    {
+    ): Response {
         $response = $handleCurrentLocale();
 
         return $this -> render("main/default/about.html.twig", response: $response);
@@ -56,17 +53,16 @@ class DefaultController extends AbstractController
     )]
     public function redirectToIndex(Request $request): Response
     {
-        $supportedLocales= explode("|",$this->getParameter('app.main.supported_locales'));
-        foreach ($request -> getLanguages() as  $locale) {
-            if(in_array($locale, $supportedLocales)){
-                return  $this -> redirectToRoute("app_index",[
+        $supportedLocales = explode("|", $this->getParameter('app.main.supported_locales'));
+        foreach ($request -> getLanguages() as $locale) {
+            if (in_array($locale, $supportedLocales)) {
+                return  $this -> redirectToRoute("app_index", [
                     "_locale" => $locale
                 ]);
             }
         }
-        return  $this -> redirectToRoute("app_index",[
+        return  $this -> redirectToRoute("app_index", [
             "_locale" => "en"
         ]);
-
     }
 }

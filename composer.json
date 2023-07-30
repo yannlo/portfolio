@@ -79,7 +79,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "phpcs-verify": "./vendor/bin/phpcs",
+        "phpcs-correct": "./vendor/bin/phpcbf"
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -92,6 +94,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "^3.7",
         "symfony/browser-kit": "6.3.*",
         "symfony/css-selector": "6.3.*",
         "symfony/debug-bundle": "6.3.*",

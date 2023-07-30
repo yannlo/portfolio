@@ -7,7 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-#[Route([
+#[Route(
+    [
         "en" => "/{_locale}/my-projects",
         "fr" => "/{_locale}/mes-projets",
     ],
@@ -22,26 +23,26 @@ class ProjectController extends AbstractController
     #[Route(name: 'list')]
     public function list(
         HandleCurrentLocale $handleCurrentLocale
-    ): Response
-    {
+    ): Response {
         $response = $handleCurrentLocale();
-        return $this->render('main/project/list.html.twig',response: $response);
+        return $this->render('main/project/list.html.twig', response: $response);
     }
 
-    #[Route('/{!slug}-{!id}',
+    #[Route(
+        '/{!slug}-{!id}',
         name: 'show',
         requirements:[
             "slug" => "[a-z\-]+",
             "id" => "\d+"
         ]
     )]
-    public function show(string $slug,
+    public function show(
+        string $slug,
         HandleCurrentLocale $handleCurrentLocale
-    ): Response
-    {
+    ): Response {
         $response = $handleCurrentLocale();
-        return $this->render('main/project/show.html.twig',[
+        return $this->render('main/project/show.html.twig', [
             "slug" => $slug
-        ],response: $response);
+        ], response: $response);
     }
 }
