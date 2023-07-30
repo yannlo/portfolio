@@ -2,22 +2,30 @@
 
 namespace App\Controller\Main;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Service\HandleCurrentLocale;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class ContactController extends AbstractController
 {
     #[Route([
-            "en" => "/contact-me",
-            "fr" => "/contactez-moi",
+            "en" => "/{_locale}/contact-me",
+            "fr" => "/{_locale}/contactez-moi",
         ],
         name: 'app_contact',
-        methods:["GET"]
+        methods:["GET"],
+        requirements:[
+            '_locale' => '%app.main.supported_locales%'
+        ]
     )]
-    public function index(): Response
+    public function index(
+        HandleCurrentLocale $handleCurrentLocale
+    ): Response
     {
-        return $this->render('contact/index.html.twig');
+        $response = $handleCurrentLocale();
+        
+        return $this->render('main/contact/index.html.twig', response: $response);
     }
 
     #[Route('/contact', name: 'app_contact_process', methods:["POST"])]

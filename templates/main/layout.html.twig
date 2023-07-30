@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title "Contact page" %}
+
+{% block body %}
+
+<div>
+    <div>
+        <p>Navigate</p>
+        <a href="{{ path('app_index',{'_locale': app.locale }) }}">Index</a>
+        <a href="{{ path('app_about',{'_locale': app.locale }) }}">About me</a>
+        <a href="{{ path("app_design_list",{'_locale': app.locale }) }}">Designs</a>
+        <a href="{{ path("app_project_list",{'_locale': app.locale }) }}">projects</a>
+    </div>
+
+</div>
+{% block main %}{% endblock %}
+
+<div>
+    <div>
+        <p>Have the web site in english</p>
+        <a href="{{ path(app.current_route,{'_locale': 'en'}) }}">English</a>
+    </div>
+    <div>
+        <p>Avoir le site web en français</p>
+        <a href="{{ path(app.current_route,{'_locale': 'fr'}) }}">Français</a>
+    </div>
+</div>
+
+
+{% endblock %}

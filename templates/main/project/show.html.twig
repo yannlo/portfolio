@@ -1,10 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% set title = "Show project page"%}
+{% set title = "Show project page " ~ app.locale %}
 
 {% block title title %}
 
-{% block body %}
+{% block main %}
 
 <h1>{{title}} - {{slug}}</h1>
 {% endblock %}
