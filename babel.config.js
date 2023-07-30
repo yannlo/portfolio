@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 module.exports = {
     "sourceType": "unambiguous",
     "presets": [

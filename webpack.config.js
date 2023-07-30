@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const Encore = require('@symfony/webpack-encore');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
@@ -29,6 +30,32 @@ Encore
     // but, you probably want this, unless you're building a single-page app
     .enableSingleRuntimeChunk()
 
+
+    /**
+     * SERVER CONFIG
+     */
+    .configureDevServerOptions(options => {
+        options.liveReload = true;
+        options.static = {
+            watch: false
+        };
+        options.watchFiles = {
+            paths: ['src/**/*.php', 'templates/**/*'],
+        };
+    })
+
+    
+    /**
+     * OUTPUT CONFIG
+     */
+    // Set the path the files are copied to
+    // Encore.copyFiles({
+    //     from: './assets/resources',
+    //     pattern: /\.(woff|woff2|eot|ttf|otf)$/i,
+    //     // to path is relative to the build directory
+    //     to: 'ressources/[path][name].[ext]'
+    // })
+
     /*
      * FEATURE CONFIG
      *
@@ -55,6 +82,9 @@ Encore
     //     config.useBuiltIns = 'usage';
     //     config.corejs = '3.23';
     // })
+
+    // enables Postcss
+    .enablePostCssLoader()
 
     // enables Sass/SCSS support
     //.enableSassLoader()
