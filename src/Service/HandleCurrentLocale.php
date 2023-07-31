@@ -14,7 +14,8 @@ class HandleCurrentLocale
     private Request $request;
     public function __construct(
         private UrlGeneratorInterface $router,
-        RequestStack $requestStack
+        RequestStack $requestStack,
+        private string $domain
     ) {
         $this -> request = $requestStack ->getCurrentRequest();
     }
@@ -31,7 +32,8 @@ class HandleCurrentLocale
                 Cookie::create('currentLocale')
                     ->withValue($this -> request->getLocale())
                     ->withExpires(new \DateTime("+28Days"))
-                    // ->withDomain('.example.com')
+                    ->withHttpOnly()
+                    ->withDomain($this -> domain)
                     ->withSecure(true)
             );
         } elseif (!is_null($currentLocale) && $this -> request->getLocale() !== $currentLocale) {

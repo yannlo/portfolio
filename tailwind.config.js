@@ -15,8 +15,17 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        'red': "#C30B4E",
-        'yellow': "#FFD700",
+        'red': {
+          DEFAULT: "#C30B4E",
+          "hover": "#75072F",
+          "active": "#D55483",
+        },
+        'yellow': {
+          DEFAULT: "#FFD700",
+          "hover": "#FFE766",
+          "active": "#B39700",
+        }
+        ,
         'white': "#F8F8FF",
         'gray': {
           "light":"#DBDBE6",

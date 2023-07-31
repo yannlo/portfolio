@@ -10,6 +10,9 @@ if (!Encore.isRuntimeEnvironmentConfigured()) {
 Encore
     // directory where compiled assets will be stored
     .setOutputPath('public/build/')
+
+    // enableversioning
+    .enableVersioning()
     // public path used by the web server to access the output path
     .setPublicPath('/build')
     // only needed for CDN's or subdirectory deploy
@@ -25,6 +28,9 @@ Encore
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
+
+    // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
+    .enableStimulusBridge('./assets/controllers.json')
 
     // will require an extra script tag for runtime.js
     // but, you probably want this, unless you're building a single-page app
@@ -48,13 +54,19 @@ Encore
     /**
      * OUTPUT CONFIG
      */
-    // Set the path the files are copied to
-    // Encore.copyFiles({
-    //     from: './assets/resources',
-    //     pattern: /\.(woff|woff2|eot|ttf|otf)$/i,
-    //     // to path is relative to the build directory
-    //     to: 'ressources/[path][name].[ext]'
-    // })
+    //Set the path the files are copied to
+    .copyFiles({
+        from: './assets/images',
+
+        // optional target path, relative to the output dir
+        //to: 'images/[path][name].[ext]',
+
+        // if versioning is enabled, add the file hash too
+        to: 'images/[path][name].[ext]',
+
+        // only copy files matching this pattern
+        pattern: /\.(png|jpg|jpeg)$/
+    })
 
     /*
      * FEATURE CONFIG

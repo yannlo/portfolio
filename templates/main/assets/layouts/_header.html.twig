@@ -1,0 +1,26 @@
+<header  {{ stimulus_controller('header') }} stimulus class="fixed w-full top-0 right-0 left-0 flex flex-row justify-between items-center px-6 py-4 lg:px-20 xl:px-48 lg:pt-6 bg-white/90 transition-colors duration-300 dark:bg-black/90 lg:bg-white/90 dark:lg:bg-black/90">
+    <a href="#">
+        <img data-image-with-theme class ="hidden lg:inline-block min-w-min" src="{{ asset(image_with_theme('logo/md.png')) }}" alt="logo of YannLo">
+        <img data-image-with-theme class ="inline-block lg:hidden min-w-min" src="{{ asset(image_with_theme('logo/sm.png')) }}" alt="logo of YannLo">
+    </a>
+
+
+    <svg {{ stimulus_action('header',"open","click") }} {{ stimulus_target("header", "open") }} class="cursor-pointer w-12 transition-colors duration-300 fill-black hover:fill-red dark:fill-white dark:hover:fill-yellow lg:hidden" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M6 14.25C6 13.0074 7.00736 12 8.25 12H39.75C40.9926 12 42 13.0074 42 14.25C42 15.4926 40.9926 16.5 39.75 16.5H8.25C7.00736 16.5 6 15.4926 6 14.25Z" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M6 24C6 22.7574 7.00736 21.75 8.25 21.75H39.75C40.9926 21.75 42 22.7574 42 24C42 25.2426 40.9926 26.25 39.75 26.25H8.25C7.00736 26.25 6 25.2426 6 24Z"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M6 33.75C6 32.5074 7.00736 31.5 8.25 31.5H39.75C40.9926 31.5 42 32.5074 42 33.75C42 34.9926 40.9926 36 39.75 36H8.25C7.00736 36 6 34.9926 6 33.75Z"/>
+    </svg>
+
+    <svg {{stimulus_action('header',"close","click")}} {{ stimulus_target("header", "close") }} class=" hidden cursor-pointer w-12 transition-colors duration-300 fill-black hover:fill-red dark:fill-white dark:hover:fill-yellow lg:hidden" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M27.1843 24.0007L36.0906 15.0945C36.5133 14.6725 36.751 14.1 36.7515 13.5027C36.7521 12.9055 36.5153 12.3325 36.0934 11.9098C35.6714 11.4871 35.0989 11.2493 34.5016 11.2488C33.9044 11.2483 33.3314 11.485 32.9087 11.907L24.0024 20.8132L15.0962 11.907C14.6735 11.4843 14.1002 11.2468 13.5024 11.2468C12.9047 11.2468 12.3314 11.4843 11.9087 11.907C11.486 12.3297 11.2485 12.903 11.2485 13.5007C11.2485 14.0985 11.486 14.6718 11.9087 15.0945L20.8149 24.0007L11.9087 32.907C11.486 33.3297 11.2485 33.903 11.2485 34.5007C11.2485 35.0985 11.486 35.6718 11.9087 36.0945C12.3314 36.5172 12.9047 36.7546 13.5024 36.7546C14.1002 36.7546 14.6735 36.5172 15.0962 36.0945L24.0024 27.1882L32.9087 36.0945C33.3314 36.5172 33.9047 36.7546 34.5024 36.7546C35.1002 36.7546 35.6735 36.5172 36.0962 36.0945C36.5189 35.6718 36.7563 35.0985 36.7563 34.5007C36.7563 33.903 36.5189 33.3297 36.0962 32.907L27.1843 24.0007Z"/>
+    </svg>
+
+    <nav {{ stimulus_target("header", "menu") }} class="fixed bg-gray-light dark:bg-gray-dark w-full top-20 bottom-0 left-full transition-transform duration-500  px-16 py-20 flex flex-col items-center gap-16 lg:bg-transparent dark:lg:bg-transparent lg:transition-none lg:translate-x-0 lg:w-fit lg:relative lg:top-0 lg:left-0 lg:px-0 lg:py-0 lg:flex-row lg:items-center lg:gap-24 xl:gap-32">
+        <ul class="flex flex-col gap-12 items-center lg:flex-row lg:gap-8 ">
+            <li><a class="text-xl font-medium text-red dark:text-yellow" href="#">Mon profil</a></li>
+            <li><a class="text-xl font-medium transition-colors duration-300 hover:text-red dark:hover:text-yellow " href="#">Mes projets</a></li>
+            <li><a class="text-xl font-medium transition-colors duration-300 hover:text-red dark:hover:text-yellow " href="#">Mes designs</a></li>
+        </ul>
+        <a class="btn btn--primary" href="#">Me contacter</a>
+    </nav>
+</header>
