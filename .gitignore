@@ -27,8 +27,7 @@ yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
 ###> domain/files-loading ###
-/public/images/
-/public/documents/
+/public/resources
 ###< domain/files-loading ###
 
 ###> squizlabs/php_codesniffer ###

@@ -6,7 +6,7 @@
 
 @layer components {
     .btn{
-        @apply w-fit px-4 py-3 box-content rounded-md flex flex-row gap-3 text-base font-medium;
+        @apply w-fit px-4 py-3 box-content rounded-md flex flex-row gap-3 items-center text-base font-medium;
     }
 
     .btn--primary{

@@ -22,6 +22,9 @@ class DefaultController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
+        if($response -> getStatusCode() == 302){
+            return $response;
+        }
 
         return $this->render('main/default/index.html.twig', [], $response);
     }
@@ -41,7 +44,10 @@ class DefaultController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
-
+        if($response -> getStatusCode() == 302){
+            return $response;
+        }
+        
         return $this -> render("main/default/about.html.twig", response: $response);
     }
 
@@ -53,6 +59,16 @@ class DefaultController extends AbstractController
     )]
     public function redirectToIndex(Request $request): Response
     {
+        $currentLocale = $request->cookies -> get(
+            $this->getParameter('app.main.locale_cookie_name')
+        );
+        
+        if (!is_null($currentLocale)) {
+            return  $this -> redirectToRoute("app_index", [
+                "_locale" => $currentLocale
+            ]);
+        }
+
         $supportedLocales = explode("|", $this->getParameter('app.main.supported_locales'));
         foreach ($request -> getLanguages() as $locale) {
             if (in_array($locale, $supportedLocales)) {
@@ -62,7 +78,7 @@ class DefaultController extends AbstractController
             }
         }
         return  $this -> redirectToRoute("app_index", [
-            "_locale" => "en"
+            "_locale" => $request->getDefaultLocale()
         ]);
     }
 }

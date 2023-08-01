@@ -5,7 +5,10 @@
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     app.domain: "%env(APP_DOMAIN)%"
+
     app.main.supported_locales: 'en|fr'
+    app.main.locale_cookie_name: 'currentLocale'
+
     app.main.default_theme: 'dark'
     
     router.request_context.scheme: 'https'
@@ -28,7 +31,7 @@ services:
 
     App\Service\HandleCurrentLocale:
         arguments:
-            $domain: '%env(APP_DOMAIN)%'
+            $localeCookieName: '%app.main.locale_cookie_name%'
 
     App\Service\ThemeProvider:
         arguments:

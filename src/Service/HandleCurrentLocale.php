@@ -15,32 +15,32 @@ class HandleCurrentLocale
     public function __construct(
         private UrlGeneratorInterface $router,
         RequestStack $requestStack,
-        private string $domain
+        private string $localeCookieName
     ) {
         $this -> request = $requestStack ->getCurrentRequest();
     }
     public function __invoke(): Response
     {
-        $session = $this -> request->getSession();
         $currentRouteName = $this -> request->attributes->get("_route");
         $currentRouteParams = $this -> request->attributes->get("_route_params");
-        $currentLocale = $this -> request->cookies -> get('currentLocale');
+        $currentLocale = $this -> request->cookies -> get($this -> localeCookieName);
         $response = new Response();
 
-        if ($session -> get("previousRouteName") == $currentRouteName) {
+        if (is_null($currentLocale)) {
+
             $response->headers->setCookie(
-                Cookie::create('currentLocale')
+                Cookie::create($this -> localeCookieName)
                     ->withValue($this -> request->getLocale())
                     ->withExpires(new \DateTime("+28Days"))
-                    ->withHttpOnly()
-                    ->withDomain($this -> domain)
+                    -> withHttpOnly(false)
+                    // ->withDomain($this -> domain)
+                    ->withSameSite("strict")
                     ->withSecure(true)
             );
         } elseif (!is_null($currentLocale) && $this -> request->getLocale() !== $currentLocale) {
             $currentRouteParams["_locale"] = $currentLocale;
             $response = new RedirectResponse($this->router->generate($currentRouteName, $currentRouteParams));
         }
-        $session->set("previousRouteName", $currentRouteName);
 
         return $response;
     }

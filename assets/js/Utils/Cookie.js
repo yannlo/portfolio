@@ -20,9 +20,10 @@ export function getCookie(name){
  * @param {string} name 
  * @param {string} value 
  * @param {number} days 
+ * @param {string} sameSite 
  */
-export function setCookie(name, value, days){
+export function setCookie(name, value, days, sameSite="Strict", path="/"){
     const date = new Date();
     date.setDate(date.getDate() + days)
-    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${date.toUTCString()}`
+    document.cookie = `${name}=${encodeURIComponent(value)}; expires=${date.toUTCString()}; SameSite=${sameSite}; path=${path};`
 }

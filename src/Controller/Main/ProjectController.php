@@ -25,6 +25,10 @@ class ProjectController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
+        if($response -> getStatusCode() == 302){
+            return $response;
+        }
+        
         return $this->render('main/project/list.html.twig', response: $response);
     }
 
@@ -41,8 +45,32 @@ class ProjectController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
+        if($response -> getStatusCode() == 302){
+            return $response;
+        }
+        
         return $this->render('main/project/show.html.twig', [
             "slug" => $slug
         ], response: $response);
+    }
+
+
+    public function recents(int $max = 6): Response
+    {
+        $list = [];
+
+        // get the recent articles somehow (e.g. making a database query)
+        for ($i=1; $i <= $max; $i++) { 
+            $list[] = [
+                'id' => $i,
+                'title' => "Title of project ".$i,
+                'slug' => "title-of-project",
+                'uri'=> "/resources/images/projects/image-".$i.".png"
+            ]; 
+        }
+
+        return $this->render('main/project/_recents.html.twig', [
+            'list' => $list
+        ]);
     }
 }

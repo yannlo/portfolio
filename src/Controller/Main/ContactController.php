@@ -24,6 +24,9 @@ class ContactController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
+        if($response -> getStatusCode() == 302){
+            return $response;
+        }
 
         return $this->render('main/contact/index.html.twig', response: $response);
     }

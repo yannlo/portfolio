@@ -1,8 +1,6 @@
-{% extends 'base.html.twig' %}
+{% extends 'main/base.html.twig' %}
 
-{% block title "Contact page" %}
-
-{% block body %}
+{% block content %}
 <div>
     <div>
         <p>Navigate</p>
@@ -20,21 +18,7 @@
 {% block main %}{% endblock %}
 </main>
 
-<div>
-    <div>
-        <p>Have the web site in english</p>
-        <a href="{{ path(app.current_route,{'_locale': 'en'}) }}">English</a>
-    </div>
-    <div>
-        <p>Avoir le site web en français</p>
-        <a href="{{ path(app.current_route,{'_locale': 'fr'}) }}">Français</a>
-    </div>
-</div>
+{{ include("./main/assets/layouts/_footer.html.twig") }}
 
-<div>
-    <p>Select the mode :</p>
-    <input type="radio" name="mode" id="dark" value="dark"><label for="dark">Dark mode</label>
-    <input type="radio" name="mode" id="light" value="light"><label for="light">Light mode</label>
-</div>
 
 {% endblock %}
