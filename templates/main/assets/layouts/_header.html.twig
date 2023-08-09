@@ -1,3 +1,4 @@
+{% trans_default_domain 'layout' %}
 <header  {{ stimulus_controller('layouts/header') }} stimulus class="fixed z-50 w-full top-0 right-0 left-0 flex flex-row justify-between items-center px-6 py-4 lg:px-20 xl:px-48 lg:pt-6 bg-white/90 transition-colors duration-300 dark:bg-black/90 lg:bg-white/90 dark:lg:bg-black/90">
     <a href="{{ path('app_index',{'_locale': app.locale }) }}">
         <img data-image-with-theme class ="hidden lg:inline-block min-w-min" src="{{ asset(image_with_theme('logo/md.png')) }}" alt="police of YannLo's logo">
@@ -17,10 +18,10 @@
 
     <nav {{ stimulus_target("layouts/header", "menu") }} class="fixed bg-gray-light dark:bg-gray-dark w-full top-20 bottom-0 left-full transition-transform duration-500  px-16 py-20 flex flex-col items-center gap-16 lg:bg-transparent dark:lg:bg-transparent lg:transition-none lg:translate-x-0 lg:w-fit lg:relative lg:top-0 lg:left-0 lg:px-0 lg:py-0 lg:flex-row lg:items-center lg:gap-24 xl:gap-32">
         <ul class="flex flex-col gap-12 items-center lg:flex-row lg:gap-8 ">
-            <li><a class="text-xl font-medium {% if app.current_route == "app_about" %} text-red dark:text-yellow {% else %} transition-colors duration-300 hover:text-red dark:hover:text-yellow {% endif %}" href="{{ path('app_about',{'_locale': app.locale }) }}">Mon profil</a></li>
-            <li><a class="text-xl font-medium {% if app.current_route starts with "app_project" %} text-red dark:text-yellow {% else %} transition-colors duration-300 hover:text-red dark:hover:text-yellow {% endif %}" href="{{ path('app_project_list',{'_locale': app.locale }) }}">Mes projets</a></li>
-            <li><a class="text-xl font-medium {% if app.current_route starts with "app_design" %} text-red dark:text-yellow {% else %} transition-colors duration-300 hover:text-red dark:hover:text-yellow {% endif %}" href="{{ path('app_design_list',{'_locale': app.locale }) }}">Mes designs</a></li>
+            <li><a class="text-xl font-medium {% if app.current_route == "app_about" %} text-red dark:text-yellow {% else %} transition-colors duration-300 hover:text-red dark:hover:text-yellow {% endif %}" href="{{ path('app_about',{'_locale': app.locale }) }}">{{ "header.nav.about" |trans }}</a></li>
+            <li><a class="text-xl font-medium {% if app.current_route starts with "app_project" %} text-red dark:text-yellow {% else %} transition-colors duration-300 hover:text-red dark:hover:text-yellow {% endif %}" href="{{ path('app_project_list',{'_locale': app.locale }) }}">{{ "header.nav.project" |trans }}</a></li>
+            <li><a class="text-xl font-medium {% if app.current_route starts with "app_design" %} text-red dark:text-yellow {% else %} transition-colors duration-300 hover:text-red dark:hover:text-yellow {% endif %}" href="{{ path('app_design_list',{'_locale': app.locale }) }}">{{ "header.nav.design" |trans }}</a></li>
         </ul>
-        <a class="btn btn--primary" href="{{ path('app_contact',{'_locale': app.locale }) }}">Me contacter</a>
+        <a class="btn btn--primary" href="{{ path('app_contact',{'_locale': app.locale }) }}">{{ "header.btn.contact" |trans }}</a>
     </nav>
 </header>

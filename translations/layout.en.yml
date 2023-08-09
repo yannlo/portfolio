@@ -1,0 +1,19 @@
+header:
+    nav:
+        about: "My profile"
+        project: "My projects"
+        design: "My designs"
+
+    btn:
+        contact: "Contact me"
+
+footer:
+    brand: "The YannLo website was created to present myself, my skills and the projects I've worked on (both personal and professional). It's also on this site that you'll be able to contact me for the realization of websites, designs or for possible work contracts."
+
+    project:
+        title: "My recent projects"
+
+    contact:
+        title: "My contact details"
+
+    lang: "English"
