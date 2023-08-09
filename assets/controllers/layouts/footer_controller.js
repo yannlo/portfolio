@@ -27,18 +27,4 @@ export default class extends Controller {
             )
         }
     }
-    /**
-     * 
-     * @param {MouseEvent} e 
-     */
-    openModal = (e) => {
-        const modal = this.langPopupTarget;
-        e.preventDefault()
-        modal.classList.remove('hidden')
-        modal.classList.add('flex')
-        modal.setAttribute('aria-hidden', false)
-        modal.setAttribute('aria-modal', true)
-    }
-    
-
 }

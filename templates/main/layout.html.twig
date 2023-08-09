@@ -1,24 +1,9 @@
 {% extends 'main/base.html.twig' %}
 
 {% block content %}
-<div>
-    <div>
-        <p>Navigate</p>
-        <a href="{{ path('app_index',{'_locale': app.locale }) }}">Index</a>
-        <a href="{{ path('app_about',{'_locale': app.locale }) }}">About me</a>
-        <a href="{{ path("app_design_list",{'_locale': app.locale }) }}">Designs</a>
-        <a href="{{ path("app_project_list",{'_locale': app.locale }) }}">projects</a>
-    </div>
-
-</div>
-
 {{ include("./main/assets/layouts/_header.html.twig") }}
-
-<main>
+<main class="mt-20 lg:mt-[5.5rem] min-h-screen">
 {% block main %}{% endblock %}
 </main>
-
 {{ include("./main/assets/layouts/_footer.html.twig") }}
-
-
 {% endblock %}
