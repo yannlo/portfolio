@@ -1,0 +1,23 @@
+hero:
+  present: "Je suis"
+
+  job: 
+    dev: "Développeur web"
+    design: "UX/UI Designer"
+
+  description: "Passionné par le développement web depuis maintenant plus de 3 ans, j'ai pour objectif de mettre l'ensemble des compétences que j'ai pu acquérir jusqu'à maintenant, au service d'entreprises impactantes et de projets intéressants."
+
+  cta: "En savoir plus"
+
+skill:
+  title: "Mes compétences"
+  
+  btn: "Autres compétences"
+
+  dev:
+    title: "Développement web"
+    description: "Grâce à une pratique assidue et une veille quotidienne, j'ai pu acquérir la mettrise de plusieurs technologies et Frameworks afin de produire un code de qualité en exploitant les ressources les plus adaptées aux projets qui me sont proposées."
+
+  design:
+    title: "UX/UI Design"
+    description: " Afin de réaliser les sites les plus adaptés pour répondre à un besoin précis, j'ai dédié une partie de mon apprentissage en autodidacte à l'étude de l'expérience utilisateur et à la réalisation d'interface afin de procurer à l'utilisateur final l'expérience la plus optimale."

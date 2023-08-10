@@ -9,13 +9,28 @@ module.exports = {
     "./assets/**/*.js",
     "./templates/**/*.html.twig",
   ],
+  
+  safelist: [
+    "w-1/12",
+    "w-2/12",
+    "w-3/12",
+    "w-4/12",
+    "w-5/12",
+    "w-6/12",
+    "w-7/12",
+    "w-8/12",
+    "w-9/12",
+    "w-10/12",
+    "w-11/12",
+    "w-12/12"
+  ],
 
   darkMode: 'class',
 
   theme: {
     extend: {
-      screens: {
-        'sm': '1050px'
+      gridTemplateColumns: {
+        'basic': 'repeat(2, minmax(0, 640px))',
       },
       colors:{
         'red': {

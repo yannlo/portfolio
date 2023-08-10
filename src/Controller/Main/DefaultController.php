@@ -26,7 +26,11 @@ class DefaultController extends AbstractController
             return $response;
         }
 
-        return $this->render('main/default/index.html.twig', [], $response);
+        $projects =[];
+
+        return $this->render('main/default/index.html.twig', [
+            "projects" => $projects
+        ], $response);
     }
 
     #[Route(
@@ -79,6 +83,59 @@ class DefaultController extends AbstractController
         }
         return  $this -> redirectToRoute("app_index", [
             "_locale" => $request->getDefaultLocale()
+        ]);
+    }
+
+
+    public function skills(int $max = 3, string $groupName): Response
+    {
+
+
+        // get the recent articles somehow (e.g. making a database query)
+        
+        $max + 2;
+
+
+        if($groupName == "dev"){
+            $list = [
+                [
+                    'name' => "Symfony",
+                    "level" => 11,
+                    'uri' =>"/resources/images/skills/symfony.png"
+                ],
+                [
+                    'name' => "React JS",
+                    "level" => 9,
+                    'uri' =>"/resources/images/skills/react-js.png"
+                ],
+                [
+                    'name' => "SASS",
+                    "level" => 10,
+                    'uri' =>"/resources/images/skills/sass.png"
+                ],
+            ];
+        }
+
+        if($groupName == "design"){
+            $list = [
+                [
+                    'name' => "User experience",
+                    "level" => 10,
+                ],
+                [
+                    'name' => "Prototypes",
+                    "level" => 10,
+                ],
+                [
+                    'name' => "Figma",
+                    "level" => 9,
+                    'uri' =>"/resources/images/skills/figma.png"
+                ],
+            ];
+        }
+
+        return $this->render('main/default/_skills.html.twig', [
+            'list' => $list
         ]);
     }
 }

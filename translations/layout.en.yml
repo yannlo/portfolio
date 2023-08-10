@@ -16,4 +16,6 @@ footer:
     contact:
         title: "My contact details"
 
-    lang: "English"
+    lang: 
+        title: "Select your language"
+        name: "English"

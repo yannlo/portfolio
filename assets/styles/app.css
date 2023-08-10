@@ -6,10 +6,14 @@
 
 @layer components {
     .btn{
-        @apply w-fit px-4 py-3 box-content rounded-md flex flex-row gap-3 items-center text-base font-medium;
+        @apply w-fit box-content rounded-md flex flex-row gap-3 items-center text-base font-medium;
     }
 
     .btn--primary{
-        @apply transition-colors duration-300 active:transition-none bg-red text-white hover:bg-red-hover  active:bg-red-active dark:bg-yellow dark:text-black dark:hover:bg-yellow-hover  dark:active:bg-yellow-active ;
+        @apply px-4 py-3 transition-colors duration-300 active:transition-none bg-red text-white hover:bg-red-hover  active:bg-red-active dark:bg-yellow dark:text-black dark:hover:bg-yellow-hover  dark:active:bg-yellow-active ;
+    }
+
+    .btn--secondary{
+        @apply px-3 py-2 transition-colors duration-300 active:transition-none border-4 border-red text-red hover:border-red-hover hover:text-red-hover  active:border-red-active active:text-red-active dark:border-yellow dark:text-yellow dark:hover:border-yellow-hover dark:hover:text-yellow-hover  dark:active:border-yellow-active dark:active:text-yellow-active ;
     }
 }

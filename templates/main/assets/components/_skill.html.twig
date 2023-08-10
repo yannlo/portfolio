@@ -1,0 +1,11 @@
+<div class="flex flex-col gap-3">
+    <div class="w-full flex flex-row gap-4 items-center justify-start">
+        {% if skill.uri|default %}
+            <img class="h-8 w-8" src="{{ asset(skill.uri) }}" alt="{{ skill.name }}'s icon">
+        {% endif %}
+        <span class="font-medium text-xl">{{ skill.name }}</span>
+    </div>
+    <div class="w-full h-7 rounded-md bg-gray-light dark:bg-white ">
+        <div class="h-7 w-{{skill.level}}/12 rounded-md bg-red dark:bg-yellow"></div>
+    </div>
+</div>

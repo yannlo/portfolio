@@ -16,4 +16,6 @@ footer:
     contact:
         title: "Mes coordonnées"
 
-    lang: "Français"
+    lang: 
+        title: "Selectionner votre langue"
+        name: "Français"
