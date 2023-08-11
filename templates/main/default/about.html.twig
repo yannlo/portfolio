@@ -4,6 +4,99 @@
 
 {% block title title %}
 
-{% block main %}
+{% trans_default_domain 'about' %}
 
+{% block main %}
+<section class='w-full flex flex-col max-w-7xl mx-auto items-start gap-12 py-24 px-6 md:px-20 xl:px-0 lg:py-32 '>
+    <div class="flex flex-col gap-8 sm:flex-row">
+        <img class="object-cover aspect-square w-96 max-h-96 rounded-lg" src="{{ asset('resources/images/profile.jpg') }}" alt="photo of Yann-Loïc EHUI">
+        <div class="flex flex-col gap-4 sm:mt-8">
+            <h1 class="font-bold text-4xl sm:text-5xl" >Yann-Loïc EHUI</h1>
+            <h2 class="font-medium text-3xl sm:text-4xl">
+                <span class="inline-block w-full pb-2">{{ "presentation.job.dev" |trans }}</span>
+                <span class="inline-block w-full">UX/UI Designer<span>
+            </h2>
+        </div>
+    </div>
+    <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-2">
+            <h3 class="font-medium text-xl">Description</h3>
+            <p>
+            {{ "presentation.description" |trans }}
+            </p>
+        </div>
+        <a class="btn btn--secondary w-fit mx-auto md:col-start-1 md:col-end-2" href="{{ asset('resources/documents/Yann-Loïc EHUI - CV.pdf') }}" download>{{ "presentation.btn" |trans }}</a>
+    </div>
+</section>
+<section class='w-full flex flex-col max-w-7xl mx-auto items-center gap-16 py-24 px-6 md:px-20 xl:px-0 lg:py-32 '>
+    <h2 class="font-bold text-4xl capitalize sm:text-5xl" >{{ "skill.title" |trans }}</h2>
+    <div class="w-full flex flex-col gap-12">
+        <h3 class="font-medium text-3xl sm:text-4xl">{{ "skill.dev.title" |trans }}</h3>
+        <p>
+        {{ "skill.dev.description" |trans }}
+        </p>
+        <div class="w-full flex flex-col gap-6">
+            <h4 class="font-medium text-2xl sm:text-3xl" >Back end</h4>
+            <div class="flex flex-col gap-6 md:grid md:grid-cols-2 ">
+            {% for skill in dev_skills.back %}
+                {{ include('main/assets/components/_skill.html.twig', {skill: skill}) }}
+            {% endfor %}
+            </div>
+        </div>
+        <div class="w-full flex flex-col gap-6">
+            <h4 class="font-medium text-2xl sm:text-3xl" >Front end</h4>
+            <div class="flex flex-col gap-6 md:grid md:grid-cols-2 ">
+            {% for skill in dev_skills.front %}
+                {{ include('main/assets/components/_skill.html.twig', {skill: skill}) }}
+            {% endfor %}
+            </div>
+        </div>
+        <div class="w-full flex flex-col gap-6">
+            <h4 class="font-medium text-2xl sm:text-3xl" >{{ "skill.dev.management" |trans }}</h4>
+            <div class="flex flex-col gap-6 md:grid md:grid-cols-2 ">
+            {% for skill in dev_skills.management %}
+                {{ include('main/assets/components/_skill.html.twig', {skill: skill}) }}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="w-full flex flex-col gap-12">
+        <h3 class="font-medium text-3xl sm:text-4xl">UX/UI Design</h3>
+        <p>
+        {{ "skill.design.description" |trans }}
+        </p>
+        <div class="flex flex-col gap-8 md:grid md:grid-cols-2">
+        {% for skill in design_skills %}
+            {{ include('main/assets/components/_skill.html.twig', {skill: skill}) }}
+        {% endfor %}
+        </div>
+    </div>
+</section>
+<section class='w-full flex flex-col max-w-7xl mx-auto items-center gap-16 py-24 px-6 md:px-20 xl:px-0 lg:py-32 '>
+    <h2 class="font-bold text-4xl leading-tight text-center capitalize sm:leading-tight sm:text-5xl" >{{ "job.title" |trans }}</h2>
+    <div  class="w-full flex flex-row flex-wrap justify-evenly gap-16 md:justify-start">
+        <div class="w-full max-w-sm">
+            <h3 class="font-bold text-xl py-2 border-b-2 border-black dark:border-white ">{{ "job.first.title" |trans }}</h3>
+            <div class="mb-2">
+                <p class="flex flex-row justify-between font-medium">
+                    <span>Freelance</span>
+                    <span>SY&CO HOLDING</span>
+                </p>
+                <p>{{ "job.first.period" |trans }}</p>
+            </div>
+            <p>{{ "job.first.description" |trans }}</p>
+        </div>
+        <div class="w-full max-w-sm">
+            <h3 class="font-bold text-xl py-2 border-b-2 border-black dark:border-white">{{ "job.second.title" |trans }}</h3>
+            <div class="mb-2">
+                <p class="flex flex-row justify-between font-medium">
+                    <span>{{ "job.second.type" |trans }}</span>
+                    <span>D&Z CONSULTING</span>
+                </p>
+                <p>{{ "job.second.period" |trans }}</p>
+            </div>
+            <p>{{ "job.second.description" |trans }}</p>
+        </div>
+    </div>
+</section>
 {% endblock %}

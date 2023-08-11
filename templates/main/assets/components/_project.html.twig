@@ -1,0 +1,10 @@
+<a href="{{ path('app_project_show', {"slug": project.slug, "id": project.id, "_locale": app.locale}) }}" class="w-full max-w-xs flex flex-col gap-4 rounded-lg transition-colors duration-300 hover:bg-gray-light/70 dark:hover:bg-gray-dark/70">
+    <img class="w-full h-60 object-cover rounded-lg" src="{{asset(project.logo)}}" alt="logo of project: {{project.title}}">
+    <div class="p-4 pt-0">
+        <div class=" w-full flex flex-row justify-between gap-2">
+            <h3 class="font-bold text-xl">{{project.title}}</h3>
+            <span class="font-medium">{{project.type}}</span>
+        </div>
+        <p>{{project.description}}</p>
+    </div>
+</a> 

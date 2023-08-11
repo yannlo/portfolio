@@ -5,7 +5,7 @@ hero:
     dev: "Web Developer"
     design: "UX/UI Designer"
 
-  description: "Passionate about web development for over 3 years now, and my goal is to put all the skills I've acquired so far to work for high-impact companies and interesting projects."
+  description: "Passionate about web development for over 3 years now, I aim to put all the skills I've acquired so far to work for your company and your projects."
 
   cta: "Read more"
 
@@ -20,4 +20,9 @@ skill:
 
   design:
     title: "UX/UI Design"
-    description: "In order to design the most appropriate sites to meet a specific need, I dedicated part of my self-taught apprenticeship to the study of user experience and interface design, so as to provide the end user with the most optimal experience."
+    description: "In order to design the most appropriate sites to meet end-users' needs, I dedicated part of my self-taught apprenticeship to the study of user experience and interface design. Today, I'm able to offer one of the best possible experience."
+
+
+project:
+  title: "My projects"
+  description: "To give you a better idea of my current capabilities, here are the best projects I've been working on since my portfolio went online."

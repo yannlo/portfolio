@@ -5,7 +5,7 @@ hero:
     dev: "Développeur web"
     design: "UX/UI Designer"
 
-  description: "Passionné par le développement web depuis maintenant plus de 3 ans, j'ai pour objectif de mettre l'ensemble des compétences que j'ai pu acquérir jusqu'à maintenant, au service d'entreprises impactantes et de projets intéressants."
+  description: "Passionné par le développement web depuis maintenant plus de 3 ans, j'ai pour objectif de mettre l'ensemble des compétences que j'ai pu acquérir jusqu'à maintenant, au service de votre entreprise et vos projets."
 
   cta: "En savoir plus"
 
@@ -16,8 +16,12 @@ skill:
 
   dev:
     title: "Développement web"
-    description: "Grâce à une pratique assidue et une veille quotidienne, j'ai pu acquérir la mettrise de plusieurs technologies et Frameworks afin de produire un code de qualité en exploitant les ressources les plus adaptées aux projets qui me sont proposées."
+    description: "Grâce à une pratique assidue et une veille quotidienne, j'ai pu acquérir la maitrise de plusieurs technologies et Frameworks afin de produire un code de qualité en exploitant les ressources les plus adaptées aux projets qui me sont proposées."
 
   design:
     title: "UX/UI Design"
-    description: " Afin de réaliser les sites les plus adaptés pour répondre à un besoin précis, j'ai dédié une partie de mon apprentissage en autodidacte à l'étude de l'expérience utilisateur et à la réalisation d'interface afin de procurer à l'utilisateur final l'expérience la plus optimale."
+    description: "Afin de réaliser les sites les plus adaptés pour répondre aux besoins des utilisateurs finaux, j'ai dédié une partie de mon apprentissage en autodidacte à l'étude de l'expérience utilisateur et à la réalisation d'interface. Je suis aujourd'hui capable de proposer une expérience des plus optimales."
+
+project:
+  title: "Mes projets"
+  description: "Afin de vous présenter au mieux mes capacités actuelles, voici les meilleurs projets sur lesquels j'ai travaillé depuis la mise en ligne de mon portfolio."

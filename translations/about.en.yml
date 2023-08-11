@@ -1,0 +1,33 @@
+presentation:
+
+  job: 
+    dev: "Web developer"
+  
+  btn: "Download my CV"
+  
+  description: "For me, being a web developer means enabling companies and individuals to present themselves and their activities to the rest of the world. It also means creating services or platforms to help them promote and manage their activities. What I aspire to today is to deliver quality performance to all companies and individuals who need my skills and/or expertise."
+
+skill:
+  title: "My skills"
+  dev:
+    title: "Web development"
+    description: "Web development is a vast field, with an abundance of technologies, tools and frameworks to meet specific needs. In order to be able to work on most projects, I focused my learning on : Symfony (Back-end), React Js (Front-end) and Tailwind CSS (Front-end). What's more, as the web is a fast-moving field, I keep a daily watch on new technologies and the most widely used tools on the market."
+
+    management: "Project management"
+  
+  design:
+    description: "Providing the end-user with the best conditions and experience when using your services and platforms is an essential point often ignored by most developers who focus mainly on the technical aspect of a project. It's in order to be able to exploit its different aspects in my projects that I became interested in it, but I discovered a passion for this field and since then I've been doing my utmost to improve."
+
+job:
+  title: "My work experiences"
+
+  first:
+    title: "Fullstack web developer"
+    period: "February 2023 - March 2023"
+    description: "As part of a project carried out under a 2-month contract, I had to develop and put online a website to present all the company's activities."
+  
+  second:
+    title: "PHP Web Developer"
+    type: "Intership"
+    period: "March 2022 - September 2022"
+    description: "As part of a final year internship, I had to develop a digital content management platform with the aim of submitting and validating content proposals by customers, as well as publishing them automatically."

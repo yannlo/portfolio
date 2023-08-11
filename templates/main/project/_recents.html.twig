@@ -1,5 +1,5 @@
 {% for project in list %}
     <a class="w-24 h-24" href="{{ path('app_project_show', {"slug": project.slug, "id": project.id, "_locale": app.locale}) }}">
-        <img class="w-24 h-24 object-contain" src="{{ asset(project.uri) }}" alt="logo of project: {{ project.title }}">
+        <img class="w-24 h-24 rounded object-contain" src="{{ asset(project.logo) }}" alt="logo of project: {{ project.title }}">
     </a>
 {% endfor %}

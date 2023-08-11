@@ -19,17 +19,68 @@ class DefaultController extends AbstractController
         ]
     )]
     public function index(
-        HandleCurrentLocale $handleCurrentLocale
+        HandleCurrentLocale $handleCurrentLocale,
+        string $_locale
     ): Response {
         $response = $handleCurrentLocale();
         if($response -> getStatusCode() == 302){
             return $response;
         }
 
-        $projects =[];
+        $projects =[
+            [
+                'id' => 1,
+                'title' => "YannLo",
+                'slug' => "yannlo",
+                'type' => "website",
+                'logo'=> "/resources/images/projects/yannlo.png",
+            ]
+        ];
+
+        if($_locale == "fr"){
+            $projects[0]['description'] = "Mon portfolio présentant mes compétences actuelles, ainsi mes derniers projets et designs réalisés.";
+        } else {
+            $projects[0]['description'] = "My portfolio showing my current skills, as well as my latest projects and designs.";
+        }
+
+        $devSkills = [
+            [
+                'name' => "Symfony",
+                "level" => 10,
+                'uri' =>"/resources/images/skills/symfony.png"
+            ],
+            [
+                'name' => "React JS",
+                "level" => 7,
+                'uri' =>"/resources/images/skills/react-js.png"
+            ],
+            [
+                'name' => "Tailwind CSS",
+                "level" => 9,
+                'uri' =>"/resources/images/skills/tailwind-css.png"
+            ],
+        ];
+
+        $designSkills = [
+            [
+                'name' => "Figma",
+                "level" => 9,
+                'uri' =>"/resources/images/skills/figma.png"
+            ],
+            [
+                'name' => "Prototypes",
+                "level" => 10,
+            ],
+            [
+                'name' => "User experience",
+                "level" => 7,
+            ],
+        ];
 
         return $this->render('main/default/index.html.twig', [
-            "projects" => $projects
+            "projects" => $projects,
+            "dev_skills" => $devSkills,
+            "design_skills" => $designSkills
         ], $response);
     }
 
@@ -51,8 +102,85 @@ class DefaultController extends AbstractController
         if($response -> getStatusCode() == 302){
             return $response;
         }
+
+        $devSkills = [
+            "back" => [
+                [
+                    'name' => "Symfony",
+                    "level" => 10,
+                    'uri' =>"/resources/images/skills/symfony.png"
+                ],
+                [
+                    'name' => "Laravel",
+                    "level" => 7,
+                    'uri' =>"/resources/images/skills/laravel.png"
+                ],
+                [
+                    'name' => "Adonis",
+                    "level" => 7,
+                    'uri' =>"/resources/images/skills/adonis.png"
+                ],
+                [
+                    'name' => "PHP",
+                    "level" => 11,
+                    'uri' =>"/resources/images/skills/php.png"
+                ],
+                [
+                    'name' => "Node Js",
+                    "level" => 7,
+                    'uri' =>"/resources/images/skills/node-js.png"
+                ],
+            ],
+            "front" => [
+                [
+                    'name' => "React JS",
+                    "level" => 9,
+                    'uri' =>"/resources/images/skills/react-js.png"
+                ],
+                [
+                    'name' => "Tailwind CSS",
+                    "level" => 10,
+                    'uri' =>"/resources/images/skills/tailwind-css.png"
+                ],
+                [
+                    'name' => "Javascript",
+                    "level" => 10,
+                    'uri' =>"/resources/images/skills/javascript.png"
+                ],
+                [
+                    'name' => "SASS",
+                    "level" => 9,
+                    'uri' =>"/resources/images/skills/sass.png"
+                ],
+            ],
+            "management" => [
+                [
+                    'name' => "Scrum",
+                    "level" => 9,
+                ],
+            ]
+        ];
+
+        $designSkills = [
+            [
+                'name' => "User experience",
+                "level" => 10,
+            ],
+            [
+                'name' => "Prototypes",
+                "level" => 10,
+            ],
+            [
+                'name' => "Figma",
+                "level" => 9,
+                'uri' =>"/resources/images/skills/figma.png"
+            ],
+        ];
         
-        return $this -> render("main/default/about.html.twig", response: $response);
+        return $this -> render("main/default/about.html.twig",[
+            "dev_skills" => $devSkills,
+            "design_skills" => $designSkills,
+        ], response: $response);
     }
 
 
@@ -86,56 +214,4 @@ class DefaultController extends AbstractController
         ]);
     }
 
-
-    public function skills(int $max = 3, string $groupName): Response
-    {
-
-
-        // get the recent articles somehow (e.g. making a database query)
-        
-        $max + 2;
-
-
-        if($groupName == "dev"){
-            $list = [
-                [
-                    'name' => "Symfony",
-                    "level" => 11,
-                    'uri' =>"/resources/images/skills/symfony.png"
-                ],
-                [
-                    'name' => "React JS",
-                    "level" => 9,
-                    'uri' =>"/resources/images/skills/react-js.png"
-                ],
-                [
-                    'name' => "SASS",
-                    "level" => 10,
-                    'uri' =>"/resources/images/skills/sass.png"
-                ],
-            ];
-        }
-
-        if($groupName == "design"){
-            $list = [
-                [
-                    'name' => "User experience",
-                    "level" => 10,
-                ],
-                [
-                    'name' => "Prototypes",
-                    "level" => 10,
-                ],
-                [
-                    'name' => "Figma",
-                    "level" => 9,
-                    'uri' =>"/resources/images/skills/figma.png"
-                ],
-            ];
-        }
-
-        return $this->render('main/default/_skills.html.twig', [
-            'list' => $list
-        ]);
-    }
 }

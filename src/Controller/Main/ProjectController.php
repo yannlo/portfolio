@@ -62,10 +62,10 @@ class ProjectController extends AbstractController
         // get the recent articles somehow (e.g. making a database query)
         for ($i=1; $i <= $max; $i++) { 
             $list[] = [
-                'id' => $i,
-                'title' => "Title of project ".$i,
-                'slug' => "title-of-project",
-                'uri'=> "/resources/images/projects/image-".$i.".png"
+                'id' => 1,
+                'title' => "yannlo",
+                'slug' => "yannlo",
+                'logo'=> "/resources/images/projects/yannlo.png"
             ]; 
         }
 

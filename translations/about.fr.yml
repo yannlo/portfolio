@@ -1,0 +1,33 @@
+presentation:
+
+  job: 
+    dev: "Développeur web"
+  
+  btn: "Télécharger mon CV"
+  
+  description: "Être développeur web, c'est pour moi permettre à des entreprises et des particuliers de se présenter et présenter leurs activités au reste du monde. C'est aussi réaliser des services ou des plateformes afin de leurs permettre promouvoir et gérer leurs activités. Ce à quoi j'aspire aujourd'hui est de fournir une performance de qualité à l'ensemble des entreprises et particulières qui auront besoin de mes compétences et/ou de mon expertise."
+
+skill:
+  title: "Mes compétences"
+  dev:
+    title: "Développement web"
+    description: "Le développement web est un domaine vaste qui regorge de technologies, d'outils et de Framework qui répondent chacun a de besoin bien précis. Afin de pouvoir travailler sur la plupart des projets, j'ai concentré mon apprentissage au tour de : Symfony (Back-end), React Js (Front-end) et Tailwind CSS (Front-end). De plus le web etant un domaine qui évolue vite, j'effectue une veille quotidienne sur les nouvelles technologies et les outils les plus utilisés sur le marché."
+
+    management: "Gestion de projet"
+  
+  design:
+    description: "Fournir à l'utilisateur final les meilleures conditions et la meilleure expérience lors de l'utilisation de vos services et plateformes est un point essentiel souvent ignoré par la plupart des développeurs qui se concentrent surtout sur l'aspect technique d'un projet. C'est afin de pouvoir exploiter ses différents aspects, dans mes projets que je m'y suis intéressé mais je me suis découvert une passion pour ce domaine et depuis je fais mon maximum pour m'améliorer."
+
+job:
+  title: "Mes expériences professionnelles"
+
+  first:
+    title: "Développeur web fullstack"
+    period: "Fevrier 2023 - Mars 2023"
+    description: "Dans le cadre d'un projet réalisé sous un contrat de 2 mois, Il s’agissait de développer et de mettre en ligne un site internet visant à présenter l'ensemble des activités de l'entreprise."
+  
+  second:
+    title: "Développeur web PHP"
+    type: "Stage"
+    period: "Mars 2022 - Septembre 2022"
+    description: "Dans le cadre d'un stage de fin d'études, j'ai eu à réaliser une plateforme de gestion de contenu digital avec pour objectif, la soumission et la validation des propositions de contenu par les clients ainsi que la publication automatique."

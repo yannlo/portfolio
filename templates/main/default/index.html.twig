@@ -23,19 +23,19 @@
     <a class="btn btn--secondary w-fit mx-auto md:col-start-1 md:col-end-2" href="{{ path('app_about',{'_locale': app.locale }) }}">{{ "hero.cta" |trans }}</a>
 </section>
 <section class='w-full flex flex-col max-w-7xl mx-auto items-center gap-16 py-24 px-6 md:px-20 xl:px-0 lg:py-32 '>
-    <h2 class="font-bold text-4xl sm:text-5xl" >{{ "skill.title" |trans }}</h2>
+    <h2 class="font-bold text-4xl capitalize sm:text-5xl" >{{ "skill.title" |trans }}</h2>
     <div class="w-full flex flex-col gap-10 md:gap-16">
         <h3 class="font-medium text-3xl sm:text-4xl">{{ "skill.dev.title" |trans }}</h3>
         <div class="w-full flex flex-col gap-10 md:flex-row">
-            <div class="w-full flex flex-col gap-4 md:max-w-xl">
+            <div class="w-full flex flex-col gap-5 md:max-w-xl">
                 <img data-image-with-theme class="mx-auto" src="{{ asset(image_with_theme('illustrations/development.png')) }}" alt="Illutration to show the development process">
                 <p>{{ "skill.dev.description" |trans }}</p>
             </div>
             <div class="w-full flex flex-col gap-10 md:max-w-3xl">
                 <div class="flex flex-col gap-8">
-                    {{ render(controller(
-                            'App\\Controller\\Main\\DefaultController::skills', {max: 3, groupName: "dev"}
-                    )) }}
+                {% for skill in dev_skills %}
+                    {{ include('main/assets/components/_skill.html.twig', {skill: skill}) }}
+                {% endfor %}
                 </div>
                 <a class="btn btn--primary mx-auto" href="{{ path('app_about',{'_locale': app.locale }) }}">{{ "skill.btn" |trans }}</a>
             </div>
@@ -44,66 +44,30 @@
     <div class="w-full flex flex-col gap-10 md:gap-16">
         <h3 class="font-medium text-3xl sm:text-4xl">{{ "skill.design.title" |trans }}</h3>
         <div class="w-full flex flex-col gap-10 md:flex-row">
-            <div class="w-full flex flex-col gap-4 md:max-w-xl">
+            <div class="w-full flex flex-col gap-5 md:max-w-xl">
                 <img data-image-with-theme class="mx-auto" src="{{ asset(image_with_theme('illustrations/design.png')) }}" alt="Illutration to show the development process">
                 <p>{{ "skill.design.description" |trans }}</p>
             </div>
             <div class="w-full flex flex-col gap-10 md:max-w-3xl md:gap-16">
                 <div class="flex flex-col gap-8">
-                    {{ render(controller(
-                            'App\\Controller\\Main\\DefaultController::skills', {max: 3, groupName: "design"}
-                    )) }}
+                {% for skill in design_skills %}
+                    {{ include('main/assets/components/_skill.html.twig', {skill: skill}) }}
+                {% endfor %}
                 </div>
                 <a class="btn btn--primary mx-auto" href="{{ path('app_about',{'_locale': app.locale }) }}">{{ "skill.btn" |trans }}</a>
             </div>
         </div>
     </div>
 </section>
-{% if projects is not empty %}
-    <section class='w-full flex flex-col max-w-7xl mx-auto items-center gap-16 py-24 px-6 md:px-20 xl:px-0 lg:py-32 '>
-        <h2 class="font-bold text-4xl sm:text-5xl" >Mes projets</h2>
-        <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, labore omnis libero nihil, ad explicabo hic veritatis numquam molestias assumenda cumque praesentium nemo dolorum unde sapiente, expedita temporibus aspernatur similique!<br>
-        </p>
-        <div  class="w-full flex flex-row flex-wrap justify-evenly gap-16 md:justify-between">
-            <a href="#" class="w-full max-w-xs flex flex-col gap-4">
-                <img class="w-full" src="{{asset('resources/images/projects/belle.png')}}" alt="logo of bell">
-                <div>
-                    <div class=" w-full flex flex-row justify-between">
-                        <h3 class="font-bold text-xl">My project name</h3>
-                        <span>Web App</span>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nihil quas minus molestias cum, suscipit alias vitae quisquam odio quo autem, eveniet eos. Quidem unde, blanditiis vero quia laboriosam quasi.
-                    </p>
-                </div>
-            </a>
-            <a href="#" class="w-full max-w-xs flex flex-col gap-4">
-                <img class="w-full" src="{{asset('resources/images/projects/belle.png')}}" alt="logo of bell">
-                <div>
-                    <div class=" w-full flex flex-row justify-between">
-                        <h3 class="font-bold text-xl">My project name</h3>
-                        <span>Web App</span>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nihil quas minus molestias cum, suscipit alias vitae quisquam odio quo autem, eveniet eos. Quidem unde, blanditiis vero quia laboriosam quasi.
-                    </p>
-                </div>
-            </a>
-            <a href="#" class="w-full max-w-xs flex flex-col gap-4">
-                <img class="w-full" src="{{asset('resources/images/projects/belle.png')}}" alt="logo of bell">
-                <div>
-                    <div class=" w-full flex flex-row justify-between">
-                        <h3 class="font-bold text-xl">My project name</h3>
-                        <span>Web App</span>
-                    </div>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nihil quas minus molestias cum, suscipit alias vitae quisquam odio quo autem, eveniet eos. Quidem unde, blanditiis vero quia laboriosam quasi.
-                    </p>
-                </div>
-            </a>
-        </div>
-    </section>
-{% endif %}
+
+<section class='w-full flex flex-col max-w-7xl mx-auto gap-12 py-24 px-6 md:px-20 xl:px-0 lg:py-32 '>
+    <h2 class="font-bold capitalize text-center text-4xl sm:text-5xl" >{{ "project.title" |trans }}</h2>
+    <p>{{ "project.description" |trans }}</p>
+    <div  class="w-full flex flex-row flex-wrap justify-evenly gap-16 md:justify-between">
+    {% for project in projects %}
+        {{ include('main/assets/components/_project.html.twig', {project: project}) }}
+    {% endfor %}
+    </div>
+</section>
 
 {% endblock %}
