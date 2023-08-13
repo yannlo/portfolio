@@ -27,7 +27,6 @@ class HandleCurrentLocale
         $response = new Response();
 
         if (is_null($currentLocale)) {
-
             $response->headers->setCookie(
                 Cookie::create($this -> localeCookieName)
                     ->withValue($this -> request->getLocale())

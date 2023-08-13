@@ -1,3 +1,5 @@
+title: "Mon profil"
+
 presentation:
 
   job: 
@@ -20,7 +22,7 @@ skill:
 
 job:
   title: "Mes expériences professionnelles"
-
+  description: "Depuis mon entrée dans le marché du travail, j'ai eu la chance de rencontrer, apprendre et travailler avec des entreprises passionnés par leurs activés et sur des projets ayant un impact réel sur leurs activités."
   first:
     title: "Développeur web fullstack"
     period: "Fevrier 2023 - Mars 2023"

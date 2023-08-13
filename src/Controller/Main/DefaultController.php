@@ -23,21 +23,21 @@ class DefaultController extends AbstractController
         string $_locale
     ): Response {
         $response = $handleCurrentLocale();
-        if($response -> getStatusCode() == 302){
+        if ($response -> getStatusCode() == 302) {
             return $response;
         }
 
-        $projects =[
+        $projects = [
             [
                 'id' => 1,
                 'title' => "YannLo",
                 'slug' => "yannlo",
                 'type' => "website",
-                'logo'=> "/resources/images/projects/yannlo.png",
+                'logo' => "/resources/images/projects/yannlo.png",
             ]
         ];
 
-        if($_locale == "fr"){
+        if ($_locale == "fr") {
             $projects[0]['description'] = "Mon portfolio présentant mes compétences actuelles, ainsi mes derniers projets et designs réalisés.";
         } else {
             $projects[0]['description'] = "My portfolio showing my current skills, as well as my latest projects and designs.";
@@ -47,17 +47,17 @@ class DefaultController extends AbstractController
             [
                 'name' => "Symfony",
                 "level" => 10,
-                'uri' =>"/resources/images/skills/symfony.png"
+                'uri' => "/resources/images/skills/symfony.png"
             ],
             [
                 'name' => "React JS",
                 "level" => 7,
-                'uri' =>"/resources/images/skills/react-js.png"
+                'uri' => "/resources/images/skills/react-js.png"
             ],
             [
                 'name' => "Tailwind CSS",
                 "level" => 9,
-                'uri' =>"/resources/images/skills/tailwind-css.png"
+                'uri' => "/resources/images/skills/tailwind-css.png"
             ],
         ];
 
@@ -65,7 +65,7 @@ class DefaultController extends AbstractController
             [
                 'name' => "Figma",
                 "level" => 9,
-                'uri' =>"/resources/images/skills/figma.png"
+                'uri' => "/resources/images/skills/figma.png"
             ],
             [
                 'name' => "Prototypes",
@@ -99,7 +99,7 @@ class DefaultController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
-        if($response -> getStatusCode() == 302){
+        if ($response -> getStatusCode() == 302) {
             return $response;
         }
 
@@ -108,49 +108,49 @@ class DefaultController extends AbstractController
                 [
                     'name' => "Symfony",
                     "level" => 10,
-                    'uri' =>"/resources/images/skills/symfony.png"
+                    'uri' => "/resources/images/skills/symfony.png"
                 ],
                 [
                     'name' => "Laravel",
                     "level" => 7,
-                    'uri' =>"/resources/images/skills/laravel.png"
+                    'uri' => "/resources/images/skills/laravel.png"
                 ],
                 [
                     'name' => "Adonis",
                     "level" => 7,
-                    'uri' =>"/resources/images/skills/adonis.png"
+                    'uri' => "/resources/images/skills/adonis.png"
                 ],
                 [
                     'name' => "PHP",
                     "level" => 11,
-                    'uri' =>"/resources/images/skills/php.png"
+                    'uri' => "/resources/images/skills/php.png"
                 ],
                 [
                     'name' => "Node Js",
                     "level" => 7,
-                    'uri' =>"/resources/images/skills/node-js.png"
+                    'uri' => "/resources/images/skills/node-js.png"
                 ],
             ],
             "front" => [
                 [
                     'name' => "React JS",
                     "level" => 9,
-                    'uri' =>"/resources/images/skills/react-js.png"
+                    'uri' => "/resources/images/skills/react-js.png"
                 ],
                 [
                     'name' => "Tailwind CSS",
                     "level" => 10,
-                    'uri' =>"/resources/images/skills/tailwind-css.png"
+                    'uri' => "/resources/images/skills/tailwind-css.png"
                 ],
                 [
                     'name' => "Javascript",
                     "level" => 10,
-                    'uri' =>"/resources/images/skills/javascript.png"
+                    'uri' => "/resources/images/skills/javascript.png"
                 ],
                 [
                     'name' => "SASS",
                     "level" => 9,
-                    'uri' =>"/resources/images/skills/sass.png"
+                    'uri' => "/resources/images/skills/sass.png"
                 ],
             ],
             "management" => [
@@ -173,11 +173,11 @@ class DefaultController extends AbstractController
             [
                 'name' => "Figma",
                 "level" => 9,
-                'uri' =>"/resources/images/skills/figma.png"
+                'uri' => "/resources/images/skills/figma.png"
             ],
         ];
-        
-        return $this -> render("main/default/about.html.twig",[
+
+        return $this -> render("main/default/about.html.twig", [
             "dev_skills" => $devSkills,
             "design_skills" => $designSkills,
         ], response: $response);
@@ -194,7 +194,7 @@ class DefaultController extends AbstractController
         $currentLocale = $request->cookies -> get(
             $this->getParameter('app.main.locale_cookie_name')
         );
-        
+
         if (!is_null($currentLocale)) {
             return  $this -> redirectToRoute("app_index", [
                 "_locale" => $currentLocale
@@ -213,5 +213,4 @@ class DefaultController extends AbstractController
             "_locale" => $request->getDefaultLocale()
         ]);
     }
-
 }

@@ -25,11 +25,22 @@ class DesignController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
-        if($response -> getStatusCode() == 302){
+        if ($response -> getStatusCode() == 302) {
             return $response;
         }
 
-        return $this->render('main/design/list.html.twig', response: $response);
+        $designs = [
+            [
+                "id" => 1,
+                "slug" => "yannlo",
+                "title" => "YannLo",
+                "type" => "website",
+                'cover' => "/resources/images/designs/yannlo/cover.png",
+            ]
+        ];
+        return $this->render('main/design/list.html.twig', [
+            "designs" => $designs
+        ], response: $response);
     }
 
     #[Route(
@@ -45,10 +56,10 @@ class DesignController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
-        if($response -> getStatusCode() == 302){
+        if ($response -> getStatusCode() == 302) {
             return $response;
         }
-        
+
         return $this->render('main/design/show.html.twig', [
             "slug" => $slug
         ], response: $response);

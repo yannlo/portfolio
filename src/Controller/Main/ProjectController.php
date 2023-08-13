@@ -22,14 +22,33 @@ class ProjectController extends AbstractController
 {
     #[Route(name: 'list')]
     public function list(
-        HandleCurrentLocale $handleCurrentLocale
+        HandleCurrentLocale $handleCurrentLocale,
+        string $_locale
     ): Response {
         $response = $handleCurrentLocale();
-        if($response -> getStatusCode() == 302){
+        if ($response -> getStatusCode() == 302) {
             return $response;
         }
-        
-        return $this->render('main/project/list.html.twig', response: $response);
+
+        $projects = [
+            [
+                'id' => 1,
+                'title' => "YannLo",
+                'slug' => "yannlo",
+                'type' => "website",
+                'logo' => "/resources/images/projects/yannlo.png",
+            ]
+        ];
+
+        if ($_locale == "fr") {
+            $projects[0]['description'] = "Mon portfolio présentant mes compétences actuelles, ainsi mes derniers projets et designs réalisés.";
+        } else {
+            $projects[0]['description'] = "My portfolio showing my current skills, as well as my latest projects and designs.";
+        }
+
+        return $this->render('main/project/list.html.twig', [
+            "projects" => $projects
+        ], response: $response);
     }
 
     #[Route(
@@ -45,10 +64,10 @@ class ProjectController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
-        if($response -> getStatusCode() == 302){
+        if ($response -> getStatusCode() == 302) {
             return $response;
         }
-        
+
         return $this->render('main/project/show.html.twig', [
             "slug" => $slug
         ], response: $response);
@@ -60,13 +79,13 @@ class ProjectController extends AbstractController
         $list = [];
 
         // get the recent articles somehow (e.g. making a database query)
-        for ($i=1; $i <= $max; $i++) { 
+        for ($i = 1; $i <= $max; $i++) {
             $list[] = [
                 'id' => 1,
                 'title' => "yannlo",
                 'slug' => "yannlo",
-                'logo'=> "/resources/images/projects/yannlo.png"
-            ]; 
+                'logo' => "/resources/images/projects/yannlo.png"
+            ];
         }
 
         return $this->render('main/project/_recents.html.twig', [

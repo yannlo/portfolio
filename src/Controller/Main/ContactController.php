@@ -24,7 +24,7 @@ class ContactController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
-        if($response -> getStatusCode() == 302){
+        if ($response -> getStatusCode() == 302) {
             return $response;
         }
 

@@ -1,3 +1,5 @@
+title: "My profile"
+
 presentation:
 
   job: 
@@ -20,7 +22,7 @@ skill:
 
 job:
   title: "My work experiences"
-
+  description: "Since I've been joining the job market, I've had the chance to meet, learn from and work with companies who are passionate about what they do, and on projects that have a real impact on their business."
   first:
     title: "Fullstack web developer"
     period: "February 2023 - March 2023"

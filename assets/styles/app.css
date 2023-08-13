@@ -16,4 +16,17 @@
     .btn--secondary{
         @apply px-3 py-2 transition-colors duration-300 active:transition-none border-4 border-red text-red hover:border-red-hover hover:text-red-hover  active:border-red-active active:text-red-active dark:border-yellow dark:text-yellow dark:hover:border-yellow-hover dark:hover:text-yellow-hover  dark:active:border-yellow-active dark:active:text-yellow-active ;
     }
+
+    .btn--secondary svg{
+        @apply fill-red hover:fill-red-hover  active:fill-red-active dark:fill-yellow dark:hover:fill-yellow-hover dark:active:fill-yellow-active;
+    }
+
+
+    .btn--secondary-disable{
+        @apply px-3 py-2 transition-colors duration-300 active:transition-none border-4  border-gray-dark text-gray-dark dark:border-gray dark:text-gray ;
+    }
+
+    .btn--secondary-disable svg{
+        @apply fill-gray-dark dark:fill-gray ;
+    }
 }
