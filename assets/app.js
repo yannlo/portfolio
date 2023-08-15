@@ -1,4 +1,3 @@
-import './bootstrap.js';
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -7,9 +6,14 @@ import './bootstrap.js';
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
+import Popup from './js/Components/Popup.js';
+import Footer from './js/Layouts/Footer.js';
+import Header from './js/Layouts/Header.js';
 import './styles/app.css';
 
-  
-  
-  // Whenever the user explicitly chooses to respect the OS preference
-  // localStorage.removeItem('theme')
+
+new Header(document.querySelector("header"))
+new Footer(document.querySelector("footer"))
+
+document.querySelectorAll("*[data-popup]")
+  .forEach(elt =>new Popup(elt))

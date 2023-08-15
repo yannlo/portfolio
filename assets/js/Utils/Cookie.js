@@ -3,12 +3,12 @@
  * @param {string} name 
  * @returns {string|null}
  */
-export function getCookie(name){
-    const cookies =document.cookie.split("; ");
+export function getCookie(name) {
+    const cookies = document.cookie.split("; ");
     const value = cookies
-        .find( c => c.startsWith(name))
+        .find(c => c.startsWith(name))
         ?.split("=")[1]
-    if(value === undefined){
+    if (value === undefined) {
         return null;
     }
     return decodeURIComponent(value);
@@ -22,7 +22,7 @@ export function getCookie(name){
  * @param {number} days 
  * @param {string} sameSite 
  */
-export function setCookie(name, value, days, sameSite="Strict", path="/"){
+export function setCookie(name, value, days, sameSite = "Strict", path = "/") {
     const date = new Date();
     date.setDate(date.getDate() + days)
     document.cookie = `${name}=${encodeURIComponent(value)}; expires=${date.toUTCString()}; SameSite=${sameSite}; path=${path};`

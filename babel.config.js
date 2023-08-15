@@ -6,11 +6,15 @@ module.exports = {
             "@babel/preset-env",
             {
                 "modules": false,
-                "targets": {},
+                "targets": {
+                    "node": 'current'
+                },
                 "useBuiltIns": "usage",
                 "corejs": "3.23"
             }
         ]
     ],
-    "plugins": []
+    "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
+    ]
 }

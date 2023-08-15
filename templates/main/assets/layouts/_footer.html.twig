@@ -1,5 +1,5 @@
 {% trans_default_domain 'layout' %}
-<footer {{ stimulus_controller('layouts/footer') }} class="w-full pt-24 pb-4 px-5 sm:px-16 lg:pt-24 lg:pb-8 flex flex-col gap-16 ">
+<footer class="w-full pt-24 pb-4 px-5 sm:px-16 lg:pt-24 lg:pb-8 flex flex-col gap-16 ">
     {# main containt  #}
     <div class="w-full flex flex-col gap-12 2xl:px-24 lg:flex-row">
         {# Brand presentation #}
@@ -49,7 +49,14 @@
 
     {# secondary containt  #}
     <div class="flex flex-row justify-between items-center 2xl:px-24">
-        <label {{ stimulus_controller('utils/switch_footer') }} tabindex="0" aria-labelledby="switch-name" role="switch" {% if theme.get() == "dark" %}aria-checked="true"{% else %}aria-checked="false"{% endif %} class="cursor-pointer w-fit flex flex-row gap-3 justify-center items-center" for="checkbox-switch">
+        <label 
+        data-theme-toggle
+        tabindex="0"
+        aria-labelledby="switch-name"
+        role="switch"
+        {% if theme.get() == "dark" %}aria-checked="true"{% else %}aria-checked="false"{% endif %}
+        class="cursor-pointer w-fit flex flex-row gap-3 justify-center items-center"
+        for="checkbox-switch">
             <div class="w-12 h-6 p-1 bg-gray rounded-full dark:bg-yellow items-center inline-flex">
                 <div class="w-4 h-4 relative left-0 transition-transform duration-300 dark:translate-x-6 bg-white rounded-full dark:bg-black"></div>
             </div>
@@ -74,25 +81,26 @@
     </div>
 
     <div
-        {{ stimulus_controller('utils/popup', {'idBtn':"open-lang-modal"}) }} 
-        {{ stimulus_target('layouts/footer',"langPopup") }} 
+        data-popup
         aria-hidden="true"
         role="dialog"
         aria-modal="false"
         aria-labelledby="popup-title"
-        class=" hidden fixed top-0 bottom-0 left-0 transition right-0 z-40 items-center justify-center bg-gray-light/60 dark:bg-gray-dark/60">
+        data-focusables='button, a'
+        data-btn="open-lang-modal"
+        class="hidden animate-open-popup fixed top-0 bottom-0 left-0  right-0 z-40 items-center justify-center bg-gray-light/60 dark:bg-gray-dark/60">
         <div  
-        {{ stimulus_target('utils/popup',"main") }}
-        class ='bg-white dark:bg-black p-8 flex flex-col gap-10 rounded-lg w-full mx-5 max-w-md'>
+            data-popup-container
+            class ='bg-white dark:bg-black animate-open-popup-container p-8 flex flex-col gap-10 rounded-lg w-full mx-5 max-w-md'>
             <h3 id="popup-title" class="text-3xl font-medium text-center">{{ "footer.lang.title" |trans }}</h2>
             <div class="flex flex-row justify-evenly ">
                 <a 
-                {{ stimulus_action('layouts/footer',"setLang") }}
+                data-lang-link
                 href="{{ path(app.current_route, app.current_route_parameters|merge({"_locale": "en"}) ) }}" {% if app.locale != "en" %} lang='en'{% endif %} class="flex flex-row items-center gap-3 px-4 py-2 rounded-lg transition-colors duration-300 active:transition-none hover:bg-gray-light active:bg-gray dark:hover:bg-gray-dark/60 dark:active:bg-gray-dark ">
                     <span class="font-medium text-xl">English</span>
                 </a>
                 <a 
-                {{ stimulus_action('layouts/footer',"setLang") }}
+                data-lang-link
                 href="{{ path(app.current_route, app.current_route_parameters|merge({"_locale": "fr"}) ) }}" {% if app.locale != "fr" %} lang='fr'{% endif %} class="flex flex-row items-center gap-3 px-4 py-2 rounded-lg transition-colors duration-300 active:transition-none hover:bg-gray-light active:bg-gray dark:hover:bg-gray-dark/60 dark:active:bg-gray-dark ">
                     <span class="font-medium text-xl">Français</span>
                 </a>
