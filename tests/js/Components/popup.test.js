@@ -1,4 +1,4 @@
-const { default: Popup } = require("../../../assets/js/Components/Popup");
+import { default as Popup } from "../../../assets/js/Components/Popup.js";
 
 describe('Popup behavior', () => {
 
@@ -11,7 +11,7 @@ describe('Popup behavior', () => {
             aria-hidden="true"
             role="dialog"
             aria-modal="false"
-            data-btn="open-popup">
+            data-btn-open="open-popup">
             <div data-popup-container>
                 <p>Je suis le popup</p>
             </div>
@@ -41,7 +41,7 @@ describe('Popup behavior', () => {
             aria-hidden="true"
             role="dialog"
             aria-modal="false"
-            data-btn="open-popup">
+            data-btn-open="open-popup">
             <div data-popup-container>
                 <p>Je suis le popup</p>
             </div>
@@ -70,7 +70,7 @@ describe('Popup behavior', () => {
             aria-hidden="false"
             role="dialog"
             aria-modal="true"
-            data-btn="open-popup">
+            data-btn-open="open-popup">
             <div data-popup-container>
                 <p>Je suis le popup</p>
             </div>
@@ -91,6 +91,41 @@ describe('Popup behavior', () => {
         expect(popup).toHaveAttribute("aria-modal", "false");
 
     }); 
+
+    it('should be close when close button is clicked', () => {
+        document.body.innerHTML=`
+        <button id="open-popup">Open</button>
+        <div
+            data-popup
+            class="flex"
+            aria-hidden="false"
+            role="dialog"
+            aria-modal="true"
+            data-btn-open="open-popup"
+            data-btn-close="close-btn">
+            <div data-popup-container>
+                <button id="close-btn">close btn</button>
+                <p>Je suis le popup</p>
+            </div>
+        </div>
+        `
+
+        const popup = document.querySelector("div")
+        const close = popup.querySelector("#close-btn");
+        Popup.ONCE_IS_OPEN = true
+        Popup.PREV_FOCUSED = document.body
+
+        new Popup(popup);
+
+        close.click();
+
+        setTimeout(() => {
+            expect(popup).toHaveClass("hidden");
+        }, 300);
+        expect(popup).toHaveAttribute("aria-hidden", "true");
+        expect(popup).toHaveAttribute("aria-modal", "false");
+
+    }); 
     
     it('should have the focus in when is open', () => {
         document.body.innerHTML=`
@@ -102,7 +137,7 @@ describe('Popup behavior', () => {
             role="dialog"
             aria-modal="true"
             data-focusables='button, a'
-            data-btn="open-popup">
+            data-btn-open="open-popup">
             <div data-popup-container>
                 <p>Je suis le popup</p>
                 <button>cta</button>
@@ -137,7 +172,7 @@ describe('Popup behavior', () => {
             aria-hidden="false"
             role="dialog"
             aria-modal="true"
-            data-btn="open-popup">
+            data-btn-open="open-popup">
             <div data-popup-container>
                 <p>Je suis le popup</p>
             </div>

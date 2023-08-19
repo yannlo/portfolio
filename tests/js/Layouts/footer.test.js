@@ -1,5 +1,5 @@
-const { default: Footer } = require("../../../assets/js/Layouts/Footer");
-const { getCookie, setCookie } = require("../../../assets/js/Utils/Cookie");
+import { default as Footer } from "../../../assets/js/Layouts/Footer.js";
+import { getCookie, setCookie } from "../../../assets/js/Utils/Cookie.js";
 
 describe('Footer Behavior', () => {
 

@@ -1,4 +1,4 @@
-const { default: Header } = require("../../../assets/js/Layouts/Header");
+import { default as Header } from "../../../assets/js/Layouts/Header.js";
 
 describe('Header layout', () => {
     

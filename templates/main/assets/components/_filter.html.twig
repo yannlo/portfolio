@@ -1,0 +1,53 @@
+<div class="w-full flex flex-col gap-2 px-2 py-3 border-b-2 border-black dark:border-white">
+	<button id="filter-btn" class=" w-fit rounded-full flex flex-row items-center gap-2 px-2 py-1 transition-colors duration-300 active:transition-none bg-gray-light hover:bg-gray active:bg-gray-light dark:bg-gray-dark dark:hover:bg-gray-dark/70 dark:active:bg-gray-dark dark:active:transition-none">
+		<span>filtrer</span>
+		<svg class="w-5 h-5 fill-black dark:fill-white" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M0.625 5.625C0.625 5.27982 0.904822 5 1.25 5H18.75C19.0952 5 19.375 5.27982 19.375 5.625C19.375 5.97018 19.0952 6.25 18.75 6.25H1.25C0.904822 6.25 0.625 5.97018 0.625 5.625ZM3.75 10C3.75 9.65482 4.02982 9.375 4.375 9.375H15.625C15.9702 9.375 16.25 9.65482 16.25 10C16.25 10.3452 15.9702 10.625 15.625 10.625H4.375C4.02982 10.625 3.75 10.3452 3.75 10ZM7.5 14.375C7.5 14.0298 7.77982 13.75 8.125 13.75H11.875C12.2202 13.75 12.5 14.0298 12.5 14.375C12.5 14.7202 12.2202 15 11.875 15H8.125C7.77982 15 7.5 14.7202 7.5 14.375Z"/>
+		</svg>
+	</button>
+</div>
+<div {# data-popup #} aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="popup-title" data-focusables='input, button, [data-select-multi-field]' data-btn-open="filter-btn" data-btn-close="close-btn" class="flex animate-open-popup fixed top-20 bottom-0 left-0  right-0 z-40 items-center justify-center bg-gray-light/60 dark:bg-gray-dark/60">
+	<div data-popup-container class='bg-white dark:bg-black animate-open-popup-container p-8 flex flex-col gap-10 w-full h-full sm:rounded-lg sm:max-w-xl sm:h-fit sm:max-h-[95%] overflow-y-auto'>
+		<div class="w-full flex flex-row items-start justify-between">
+			<h3 id="popup-title" class="text-3xl w-full font-medium text-center">Selectionner vos filtres</h3>
+			<button id="close-btn">
+				<svg class="w-10 h-10 transition-colors duration-300 fill-black hover:fill-red dark:fill-white dark:hover:fill-yellow" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+					<path d="M27.1843 24.0007L36.0906 15.0945C36.5133 14.6725 36.751 14.1 36.7515 13.5027C36.7521 12.9055 36.5153 12.3325 36.0934 11.9098C35.6714 11.4871 35.0989 11.2493 34.5016 11.2488C33.9044 11.2483 33.3314 11.485 32.9087 11.907L24.0024 20.8132L15.0962 11.907C14.6735 11.4843 14.1002 11.2468 13.5024 11.2468C12.9047 11.2468 12.3314 11.4843 11.9087 11.907C11.486 12.3297 11.2485 12.903 11.2485 13.5007C11.2485 14.0985 11.486 14.6718 11.9087 15.0945L20.8149 24.0007L11.9087 32.907C11.486 33.3297 11.2485 33.903 11.2485 34.5007C11.2485 35.0985 11.486 35.6718 11.9087 36.0945C12.3314 36.5172 12.9047 36.7546 13.5024 36.7546C14.1002 36.7546 14.6735 36.5172 15.0962 36.0945L24.0024 27.1882L32.9087 36.0945C33.3314 36.5172 33.9047 36.7546 34.5024 36.7546C35.1002 36.7546 35.6735 36.5172 36.0962 36.0945C36.5189 35.6718 36.7563 35.0985 36.7563 34.5007C36.7563 33.903 36.5189 33.3297 36.0962 32.907L27.1843 24.0007Z"/>
+				</svg>
+			</button>
+		</div>
+		<form class="flex flex-col gap-6">
+			<div class="flex flex-col gap-2 ">
+				<label class="inline-block w-full font-medium text-xl" for="filter_key_word">Ajouter un mot clé</label>
+				<input class="bg-gray-light dark:bg-gray-dark focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow  p-2 rounded " id="filter_key_word" name="filter_key_word" type="filter_key_word">
+			</div>
+			<div class="flex flex-col gap-2 ">
+				<label class="inline-block w-full font-medium text-xl" for="filter_key_types">Selectionner des types de projets</label>
+				{{ include('main/assets/form/_select_mutiple.html.twig') }}
+			</div>
+			{# <div class="flex flex-col gap-2 ">
+							<label class="inline-block w-full font-medium text-xl" for="filter_key_skills">Selectionner des compétences</label>
+							{{ include('main/assets/form/_select_mutiple.html.twig') }}
+						</div> #}
+			<div class="flex flex-col gap-2">
+				<p class="inline-block w-full font-medium text-xl">Sélectionner la période de réalisation</p>
+				<div class="flex flex-col sm:flex-row gap-2 ">
+					<div class="w-full flex flex-col gap-1 ">
+						<label class="inline-block w-full " for="filter_after">Apres le</label>
+						<input class="w-full bg-gray-light dark:bg-gray-dark focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow  p-2 rounded " id="filter_after" name="filter_after" type="date">
+					</div>
+					<div class="w-full flex flex-col gap-1">
+						<label class="inline-block w-full " for="filter_before">Avant le</label>
+						<input class="w-full bg-gray-light dark:bg-gray-dark focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow  p-2 rounded " id="filter_before" name="filter_before" type="date">
+					</div>
+				</div>
+			</div>
+			<div class="flex flex-col gap-2 mt-2 w-full items-center ">
+				<button class="btn btn--primary" type="submit">Confimer</button>
+			</div>
+
+		</form>
+	</div>
+</div>
+
+

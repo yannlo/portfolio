@@ -7,12 +7,16 @@ export default class Popup {
     #container;
 
     /** @type {HTMLButtonElement} */
-    #btn;
+    #btnOpen;
+
+    /** @type {HTMLButtonElement} */
+    #btnClose;
 
 
     /** @type {HTMLElement[]} */
     #focusables = [];
 
+    #makeHidden
 
     /** @type {boolean} */
     static ONCE_IS_OPEN = false;
@@ -25,11 +29,9 @@ export default class Popup {
      * @param {HTMLDivElement} elt 
      */
     constructor(elt) {
-        console.log('found it');
         this.#popup = elt
         this.#container = this.#popup.querySelector("[data-popup-container]")
-        this.#btn = document.getElementById(elt.dataset.btn);
-
+        this.#btnOpen = document.getElementById(elt.dataset.btnOpen);
         if (this.#popup.dataset.focusables) {
             this.#focusables = Array.from(
                 this.#popup
@@ -38,8 +40,13 @@ export default class Popup {
                     )
             )
         }
+        
+        if(elt.dataset.btnClose){
+            this.#btnClose = document.getElementById(elt.dataset.btnClose);
+            this.#btnClose.addEventListener("click", e => this.#close(e))
+        }
 
-        this.#btn.addEventListener("click", e => this.#open(e));
+        this.#btnOpen.addEventListener("click", e => this.#open(e));
         this.#popup.addEventListener("click", e => this.#close(e));
 
         this.#container
@@ -88,6 +95,7 @@ export default class Popup {
         if (self.ONCE_IS_OPEN) {
             return;
         }
+        clearTimeout(this.#makeHidden);
         if (this.#focusables.length > 0) {
             Popup.PREV_FOCUSED = document.querySelector(':focus')
         }
@@ -110,7 +118,7 @@ export default class Popup {
      */
     #close = (e) => {
         e.preventDefault()
-        setTimeout(() => {
+        this.#makeHidden = setTimeout(() => {
             if (!Popup.ONCE_IS_OPEN) {
                 this.#popup.classList.remove('flex')
                 this.#popup.classList.add('hidden')

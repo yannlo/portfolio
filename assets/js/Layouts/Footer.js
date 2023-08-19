@@ -26,7 +26,6 @@ export default class {
      * @param {HTMLElement} e 
      */
     #setLang(e) {
-        console.log(e.getAttribute("lang"),);
         if (e.hasAttribute("lang")) {
             setCookie(
                 "currentLocale",

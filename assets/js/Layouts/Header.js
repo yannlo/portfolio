@@ -41,6 +41,9 @@ export default class {
      */
     #prevFocused = null;
 
+
+    #makeHidden
+
     /**
      * 
      * @param {HTMLElement} elt 
@@ -129,7 +132,7 @@ export default class {
         if (this.#focusables.length > 0) {
             this.prevFocused = document.querySelector(':focus')
         }
-
+        clearTimeout(this.#makeHidden);
         this.#menu.classList.replace("invisible", "visible");
         this.#menu.classList.add();
         this.#menu.classList.add("-translate-x-full");
@@ -146,7 +149,11 @@ export default class {
 
 
     #close() {
-        this.#menu.classList.replace("visible", "invisible");
+        this.#makeHidden = setTimeout(() => {
+            if(!this.isOpened){
+                this.#menu.classList.replace("visible", "invisible");
+            }
+        }, 500);
         this.#menu.classList.remove("-translate-x-full");
         this.#openIcon.classList.remove("hidden")
         this.#closeIcon.classList.add("hidden")

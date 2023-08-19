@@ -6,7 +6,6 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import Popup from './js/Components/Popup.js';
 import Footer from './js/Layouts/Footer.js';
 import Header from './js/Layouts/Header.js';
 import './styles/app.css';
@@ -16,4 +15,17 @@ new Header(document.querySelector("header"))
 new Footer(document.querySelector("footer"))
 
 document.querySelectorAll("*[data-popup]")
-  .forEach(elt =>new Popup(elt))
+  .forEach(async (elt) => {
+    import('./js/Components/Popup.js')
+      .then(({ default: Popup }) => {
+        new Popup(elt)
+      })
+  })
+
+document.querySelectorAll("*[data-select-multi]")
+  .forEach(async (elt) => {
+    import('./js/Form/selectMutiple.js')
+      .then(({ default: Popup }) => {
+        new Popup(elt)
+      })
+  })
