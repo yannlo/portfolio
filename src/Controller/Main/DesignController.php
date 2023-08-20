@@ -12,9 +12,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
         "en" => "/{_locale}/my-designs",
         "fr" => "/{_locale}/mes-designs",
     ],
-    name:"app_design_",
-    methods:["GET"],
-    requirements:[
+    name: "app_design_",
+    methods: ["GET"],
+    requirements: [
         '_locale' => '%app.main.supported_locales%'
     ]
 )]
@@ -25,7 +25,7 @@ class DesignController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
-        if ($response -> getStatusCode() == 302) {
+        if ($response->getStatusCode() == 302) {
             return $response;
         }
 
@@ -46,19 +46,32 @@ class DesignController extends AbstractController
     #[Route(
         '/{!slug}-{!id}',
         name: 'show',
-        requirements:[
+        requirements: [
             "slug" => "[a-z\-]+",
             "id" => "\d+",
         ]
     )]
     public function show(
         string $slug,
+        int $id,
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
-        if ($response -> getStatusCode() == 302) {
+        if ($response->getStatusCode() == 302) {
             return $response;
         }
+
+        if($id !== 1){
+            throw $this->createNotFoundException();
+        }
+
+        if($slug !== 'yannlo'){
+            return $this->redirectToRoute('app_design_show', [
+                "slug" => "yannlo", 
+                "id" => 1
+            ]);
+        }
+
 
         return $this->render('main/design/show.html.twig', [
             "slug" => $slug

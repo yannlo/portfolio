@@ -13,8 +13,8 @@ class DefaultController extends AbstractController
     #[Route(
         '/{_locale}',
         name: 'app_index',
-        methods:["GET"],
-        requirements:[
+        methods: ["GET"],
+        requirements: [
             '_locale' => "%app.main.supported_locales%"
         ]
     )]
@@ -23,7 +23,7 @@ class DefaultController extends AbstractController
         string $_locale
     ): Response {
         $response = $handleCurrentLocale();
-        if ($response -> getStatusCode() == 302) {
+        if ($response->getStatusCode() == 302) {
             return $response;
         }
 
@@ -90,8 +90,8 @@ class DefaultController extends AbstractController
             "fr" => "/{_locale}/mon-profil",
         ],
         name: "app_about",
-        methods:["GET"],
-        requirements:[
+        methods: ["GET"],
+        requirements: [
             '_locale' => '%app.main.supported_locales%'
         ],
     )]
@@ -99,7 +99,7 @@ class DefaultController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
-        if ($response -> getStatusCode() == 302) {
+        if ($response->getStatusCode() == 302) {
             return $response;
         }
 
@@ -177,7 +177,7 @@ class DefaultController extends AbstractController
             ],
         ];
 
-        return $this -> render("main/default/about.html.twig", [
+        return $this->render("main/default/about.html.twig", [
             "dev_skills" => $devSkills,
             "design_skills" => $designSkills,
         ], response: $response);
@@ -185,31 +185,31 @@ class DefaultController extends AbstractController
 
 
     #[Route(
-        path:"/",
+        path: "/",
         name: "app_index_redirect",
-        methods:["GET"]
+        methods: ["GET"]
     )]
     public function redirectToIndex(Request $request): Response
     {
-        $currentLocale = $request->cookies -> get(
+        $currentLocale = $request->cookies->get(
             $this->getParameter('app.main.locale_cookie_name')
         );
 
         if (!is_null($currentLocale)) {
-            return  $this -> redirectToRoute("app_index", [
+            return  $this->redirectToRoute("app_index", [
                 "_locale" => $currentLocale
             ]);
         }
 
         $supportedLocales = explode("|", $this->getParameter('app.main.supported_locales'));
-        foreach ($request -> getLanguages() as $locale) {
+        foreach ($request->getLanguages() as $locale) {
             if (in_array($locale, $supportedLocales)) {
-                return  $this -> redirectToRoute("app_index", [
+                return  $this->redirectToRoute("app_index", [
                     "_locale" => $locale
                 ]);
             }
         }
-        return  $this -> redirectToRoute("app_index", [
+        return  $this->redirectToRoute("app_index", [
             "_locale" => $request->getDefaultLocale()
         ]);
     }

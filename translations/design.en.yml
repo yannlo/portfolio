@@ -1,3 +1,10 @@
 title: "My designs"
 
 description: "For me, UX and UI design are skills that every good developer should at least know something about. Although it's not my main activity, I'm now aiming to become more proficient in this field, so that I can provide simple, coherent interfaces for projects that don't benefit from dedicated design."
+
+show:
+  title: 'Project'
+  skill: "Skills used"
+
+  description: "My main aim in designing this site was to present myself, my skills and the projects and designs I'd worked on, in order to increase my chances of being recruited or attracting new clients."
+  btn: "Show project"

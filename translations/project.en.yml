@@ -1,3 +1,10 @@
 title: "My projects"
 
 description: "In order to present my web development skills in the best possible way, I've chosen to list all the personal and professional projects I'm working on on my portfolio."
+
+show:
+  title: 'Project'
+  skill: "Skills used"
+
+  description: "I've been working on my portfolio with the aim of keeping a history of the projects I've worked on, but also showing the evolution of my skills as a developer to potential recruiters or clients. This site is intended to be completed and has evolved over time with new projects and new skills."
+  btn: "Show design"

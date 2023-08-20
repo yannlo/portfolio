@@ -1,3 +1,10 @@
 title: "Mes projets"
 
 description: "Afin de presenter de la façon la plus optimale mes compétences dans le développement web, j'ai choisi de lister l'ensemble des projets personnels et professionnels que je réalise sur mon portfolio."
+
+show:
+  title: 'Projet'
+  skill: "Compétences utilisées"
+
+  description: "J'ai travaillé sur mon portfolio avec pour objectif de garder un historique des projets sur lesquels j'ai travaillé, mais aussi montrer l'évolution de mes compétences en tant que développeur à de potentiels recruteurs ou client. Ce site est destiné à être complété et a évolué au cours du temps avec des nouveaux projets et des nouvelles compétences."
+  btn: "Voir le design"

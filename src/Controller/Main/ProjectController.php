@@ -13,8 +13,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
         "fr" => "/{_locale}/mes-projets",
     ],
     name: 'app_project_',
-    methods:["GET"],
-    requirements:[
+    methods: ["GET"],
+    requirements: [
         '_locale' => '%app.main.supported_locales%'
     ]
 )]
@@ -26,7 +26,7 @@ class ProjectController extends AbstractController
         string $_locale
     ): Response {
         $response = $handleCurrentLocale();
-        if ($response -> getStatusCode() == 302) {
+        if ($response->getStatusCode() == 302) {
             return $response;
         }
 
@@ -41,9 +41,9 @@ class ProjectController extends AbstractController
         ];
 
         if ($_locale == "fr") {
-            $projects[0]['description'] = "Mon portfolio présentant mes compétences actuelles, ainsi mes derniers projets et designs réalisés.";
+            $projects[0]['description'] = "Mon portfolio présente mes compétences actuelles, ainsi mes derniers projets et designs réalisés.";
         } else {
-            $projects[0]['description'] = "My portfolio showing my current skills, as well as my latest projects and designs.";
+            $projects[0]['description'] = "My portfolio shows my current skills, as well as my latest projects and designs.";
         }
 
         return $this->render('main/project/list.html.twig', [
@@ -54,18 +54,31 @@ class ProjectController extends AbstractController
     #[Route(
         '/{!slug}-{!id}',
         name: 'show',
-        requirements:[
+        requirements: [
             "slug" => "[a-z\-]+",
             "id" => "\d+"
         ]
     )]
     public function show(
         string $slug,
+        int $id,
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
-        if ($response -> getStatusCode() == 302) {
+        if ($response->getStatusCode() == 302) {
             return $response;
+        }
+
+        
+        if($id !== 1){
+            throw $this->createNotFoundException();
+        }
+
+        if($slug !== 'yannlo'){
+            return $this->redirectToRoute('app_project_show', [
+                "slug" => "yannlo", 
+                "id" => 1
+            ]);
         }
 
         return $this->render('main/project/show.html.twig', [

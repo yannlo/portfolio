@@ -31,18 +31,18 @@ module.exports = {
     extend: {
       keyframes: {
         fadeIn: {
-          '0%': { 
+          '0%': {
             opacity: 0,
           },
-          '100%': { 
+          '100%': {
             opacity: 1,
           },
         },
         fadeOut: {
-          '0%': { 
+          '0%': {
             opacity: 1,
           },
-          '100%': { 
+          '100%': {
             opacity: 0,
           },
         },
@@ -55,7 +55,7 @@ module.exports = {
           '100%': { transform: "translateY(50px)" },
         },
       },
-      animation:{
+      animation: {
         "open-popup": 'fadeIn .3s both',
         "open-popup-container": 'slideFromTop .3s both .1s',
         "close-popup": 'fadeOut .3s both',
@@ -63,6 +63,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         'basic': 'repeat(2, minmax(0, 640px))',
+        'show': 'repeat(2, minmax(0, min-content))',
       },
       colors: {
         'red': {

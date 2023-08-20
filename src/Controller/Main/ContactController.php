@@ -15,8 +15,8 @@ class ContactController extends AbstractController
             "fr" => "/{_locale}/contactez-moi",
         ],
         name: 'app_contact',
-        methods:["GET"],
-        requirements:[
+        methods: ["GET"],
+        requirements: [
             '_locale' => '%app.main.supported_locales%'
         ]
     )]
@@ -24,16 +24,16 @@ class ContactController extends AbstractController
         HandleCurrentLocale $handleCurrentLocale
     ): Response {
         $response = $handleCurrentLocale();
-        if ($response -> getStatusCode() == 302) {
+        if ($response->getStatusCode() == 302) {
             return $response;
         }
 
         return $this->render('main/contact/index.html.twig', response: $response);
     }
 
-    #[Route('/contact', name: 'app_contact_process', methods:["POST"])]
+    #[Route('/contact', name: 'app_contact_process', methods: ["POST"])]
     public function process(): Response
     {
-        return $this -> redirectToRoute("app_contact");
+        return $this->redirectToRoute("app_contact");
     }
 }
