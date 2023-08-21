@@ -36,6 +36,11 @@ export default class {
      */
     #isOpened = false;
 
+    /** 
+     * @type {number}
+     */
+    #prevScroll = 0;
+
     /**
      *  @type {HTMLElement|null} 
      */
@@ -70,6 +75,9 @@ export default class {
                 this.#focusIn(e)
             }
         })
+
+        this.showAfterScroll()
+        window.addEventListener("scroll", () => this.showAfterScroll() )
     }
 
     get isOpened() {
@@ -86,6 +94,17 @@ export default class {
 
     set prevFocused(v) {
         this.#prevFocused = v;
+    }
+
+
+    showAfterScroll = () => {
+        let currentScrollPos = window.scrollY;
+        if (this.#prevScroll < currentScrollPos && !this.#isOpened) {
+          this.#header.classList.add("-translate-y-20");
+        } else {
+          this.#header.classList.remove("-translate-y-20");
+        }
+        this.#prevScroll = currentScrollPos;
     }
 
     /**

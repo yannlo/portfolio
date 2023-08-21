@@ -13,7 +13,7 @@
 			</div>
 			<img class="rounded max-w-sm w-full h-[450px] object-cover sm:col-start-1 sm:row-span-1 sm:row-start-1 sm:row-end-5" src="{{ asset("/resources/images/designs/yannlo/cover.png") }}" alt="logo of YannLo">
 			<div class="flex flex-col gap-2">
-				<a class="group w-full flex flex-row gap-3 items-center transition-colors duration-300 hover:text-red dark:hover:text-yellow" href="#">
+				<a class="group w-full flex flex-row gap-3 items-center transition-colors duration-300 hover:text-red dark:hover:text-yellow" href="https://yannlo.com" target="_blank">
 					<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-black dark:fill-white group-hover:fill-red dark:group-hover:fill-yellow" viewbox="0 0 24 24">
 						<path fill-rule="evenodd" clip-rule="evenodd" d="M3 2.25C1.75736 2.25 0.75 3.25736 0.75 4.5V16.5C0.75 17.7426 1.75736 18.75 3 18.75H10.0312L9.84375 20.25H6.75C6.33579 20.25 6 20.5858 6 21C6 21.4142 6.33579 21.75 6.75 21.75H17.25C17.6642 21.75 18 21.4142 18 21C18 20.5858 17.6642 20.25 17.25 20.25H14.1562L13.9688 18.75H21C22.2426 18.75 23.25 17.7426 23.25 16.5V4.5C23.25 3.25736 22.2426 2.25 21 2.25H3ZM2.25 4.5C2.25 4.08579 2.58579 3.75 3 3.75H21C21.4142 3.75 21.75 4.08579 21.75 4.5V14.25H2.25V4.5ZM12 17.25C12.1989 17.25 12.3897 17.171 12.5303 17.0303C12.671 16.8897 12.75 16.6989 12.75 16.5C12.75 16.3517 12.706 16.2067 12.6236 16.0833C12.5412 15.96 12.4241 15.8639 12.287 15.8071C12.15 15.7503 11.9992 15.7355 11.8537 15.7644C11.7082 15.7934 11.5746 15.8648 11.4697 15.9697C11.3648 16.0746 11.2934 16.2082 11.2644 16.3537C11.2355 16.4992 11.2503 16.65 11.3071 16.787C11.3639 16.9241 11.46 17.0412 11.5833 17.1236C11.7067 17.206 11.8517 17.25 12 17.25Z"/>
 					</svg>
@@ -39,5 +39,11 @@
 			<p>{{ "show.description" |trans }}</p>
 		</div>
 		<a class="btn btn--primary mx-auto" href="{{ path('app_project_show',{'slug':'yannlo','id':1}) }}">{{ "show.btn" |trans }}</a>
+		<div class='w-full flex flex-col gap-16'>
+			<h2 class="font-medium text-3xl sm:text-4xl">Mock-up</h2>
+			<div class="w-full h-full">
+				<img class="rounded w-full h-full border-2 border-black dark:border-white" src="{{ asset("/resources/images/designs/yannlo/mockup.png") }}" alt="mockup of YannLo website">
+			</div>
+		</div>
 	</section>
 {% endblock %}

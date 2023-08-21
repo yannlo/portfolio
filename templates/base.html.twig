@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{app.locale}}" {% if theme.get() == "dark" %} class="dark"  {% endif %}>
+<html lang="{{app.locale}}" {% if theme.get() == "dark" %} class="dark scroll-smooth" {% else %} class="scroll-smooth"  {% endif %}>
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>

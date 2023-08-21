@@ -19,7 +19,7 @@
     <p class="text-xl leading-8 mb-12 md:mb-8 md:col-start-1 md:col-end-2">
         {{ "hero.description" |trans }}
     </p>
-    <a class="btn btn--secondary w-fit mx-auto md:col-start-1 md:col-end-2" href="{{ path('app_about',{'_locale': app.locale }) }}">{{ "hero.cta" |trans }}</a>
+    <a class="btn btn--secondary w-fit mx-auto md:col-start-1 md:col-end-2" href="{{ path('app_about',{'_locale': app.locale, "_fragment": "profil" }) }}">{{ "hero.cta" |trans }}</a>
 </section>
 <section class='w-full flex flex-col max-w-7xl mx-auto items-center gap-16 py-24 px-6 md:px-20 xl:px-0 lg:py-32 '>
     <h2 class="font-bold text-4xl capitalize sm:text-5xl" >{{ "skill.title" |trans }}</h2>
@@ -36,7 +36,7 @@
                     {{ include('main/assets/components/_skill.html.twig', {skill: skill}) }}
                 {% endfor %}
                 </div>
-                <a class="btn btn--primary mx-auto" href="{{ path('app_about',{'_locale': app.locale }) }}">{{ "skill.btn" |trans }}</a>
+                <a class="btn btn--primary mx-auto" href="{{ path('app_about',{'_locale': app.locale, "_fragment": "web-development" }) }}">{{ "skill.btn" |trans }}</a>
             </div>
         </div>
     </div>
@@ -53,7 +53,7 @@
                     {{ include('main/assets/components/_skill.html.twig', {skill: skill}) }}
                 {% endfor %}
                 </div>
-                <a class="btn btn--primary mx-auto" href="{{ path('app_about',{'_locale': app.locale }) }}">{{ "skill.btn" |trans }}</a>
+                <a class="btn btn--primary mx-auto" href="{{ path('app_about',{'_locale': app.locale, "_fragment": "web-design" }) }}">{{ "skill.btn" |trans }}</a>
             </div>
         </div>
     </div>

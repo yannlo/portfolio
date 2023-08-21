@@ -5,13 +5,13 @@
     data-open-icon= "#open-icon"
     data-close-icon= "#close-icon"
     data-focusables='button, a'
-    class="fixed z-50 w-full top-0 right-0 left-0 flex flex-row justify-between items-center px-6 py-4 lg:px-20 xl:px-48 lg:pt-6 bg-white/90 transition-colors duration-300 dark:bg-black/90 lg:bg-white/90 dark:lg:bg-black/90">
+    class="fixed z-50 w-full top-0 right-0 left-0 flex flex-row justify-between items-center px-6 py-4 lg:px-20 xl:px-48  lg:pt-6 bg-white/90 transition duration-300 dark:bg-black/90 lg:bg-white/90 dark:lg:bg-black/90">
     
     <a href="{{ path('app_index',{'_locale': app.locale }) }}">
         <img data-image-with-theme class ="hidden lg:inline-block min-w-min" src="{{ asset(image_with_theme('logo/md.png')) }}" alt="police of YannLo's logo">
         <img data-image-with-theme class ="inline-block lg:hidden min-w-min" src="{{ asset(image_with_theme('logo/sm.png')) }}" alt="logotype of YannLo's logo">
     </a>
-
+ 
     <button id="header-btn" class="lg:hidden">
         <svg id="open-icon" class="w-12 transition-colors duration-300 fill-black hover:fill-red dark:fill-white dark:hover:fill-yellow" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M6 14.25C6 13.0074 7.00736 12 8.25 12H39.75C40.9926 12 42 13.0074 42 14.25C42 15.4926 40.9926 16.5 39.75 16.5H8.25C7.00736 16.5 6 15.4926 6 14.25Z" />
