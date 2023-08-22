@@ -1,110 +1,99 @@
 {% trans_default_domain 'layout' %}
-<footer class="w-full pt-24 pb-4 px-5 sm:px-16 lg:pt-24 lg:pb-8 flex flex-col gap-16 ">
-    {# main containt  #}
-    <div class="w-full flex flex-col gap-12 2xl:px-24 lg:flex-row">
-        {# Brand presentation #}
-        <div class="flex flex-col w-full h-auto gap-6 lg:basis-1/2 justify-center items-center">
-            <img class="w-full max-w-fit" data-image-with-theme src="{{ asset(image_with_theme('logo/lg.png')) }}" alt="YannLo's logo completed">
-            <p>
-                {{ "footer.brand" |trans }}
-            </p>
-        </div>
+<footer
+	class="w-full pt-24 pb-4 px-5 sm:px-16 lg:pt-24 lg:pb-8 flex flex-col gap-16 ">
+	{# main containt  #}
+	<div
+		class="w-full flex flex-col gap-12 2xl:px-24 lg:flex-row">
+		{# Brand presentation #}
+		<div class="flex flex-col w-full h-auto gap-6 lg:basis-1/2 justify-center items-center">
+			<img class="w-full max-w-fit" data-image-with-theme src="{{ asset(image_with_theme('logo/lg.png')) }}" alt="YannLo's logo completed">
+			<p>
+				{{ "footer.brand" |trans }}
+			</p>
+		</div>
 
-        {# Project list #}
-        <div class="w-full flex flex-col gap-5 lg:basis-2/6 px-3 pt-4 border-t-2 lg:border-t-0 lg:border-l-2 border-black dark:border-white">
-            <h2 class="font-bold text-2xl ">{{ "footer.project.title" |trans }}</h2>
-            <div class="w-full flex flex-row flex-wrap gap-4 justify-start ">
-                {{ render(controller(
+		{# Project list #}
+		<div class="w-full flex flex-col gap-5 lg:basis-2/6 px-3 pt-4 border-t-2 lg:border-t-0 lg:border-l-2 border-black dark:border-white">
+			<h2 class="font-bold text-2xl ">{{ "footer.project.title" |trans }}</h2>
+			<div class="w-full flex flex-row flex-wrap gap-4 justify-start ">
+				{{ render(controller(
                     'App\\Controller\\Main\\ProjectController::recents', {max: 1}
                 )) }}
-            </div>
-        </div>
+			</div>
+		</div>
 
-        {# Contact details #}
-        <div class="flex flex-col gap-5 lg:basis-1/6 px-3 pt-4 border-t-2 lg:border-t-0 lg:border-l-2 border-black dark:border-white">
-            <h2 class="font-bold text-2xl ">{{ "footer.contact.title" |trans }}</h2>
-            <ul class="w-full flex flex-col gap-4">
-                <li class="flex flex-row gap-3 items-start">
-                    <svg class="h-7 w-7  fill-red dark:fill-yellow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19.875 3.75H4.125C3.42904 3.75074 2.76179 4.02755 2.26967 4.51967C1.77755 5.01179 1.50074 5.67904 1.5 6.375V17.625C1.50074 18.321 1.77755 18.9882 2.26967 19.4803C2.76179 19.9725 3.42904 20.2493 4.125 20.25H19.875C20.571 20.2493 21.2382 19.9725 21.7303 19.4803C22.2225 18.9882 22.4993 18.321 22.5 17.625V6.375C22.4993 5.67904 22.2225 5.01179 21.7303 4.51967C21.2382 4.02755 20.571 3.75074 19.875 3.75ZM19.2103 8.09203L12.4603 13.342C12.3287 13.4444 12.1667 13.4999 12 13.4999C11.8333 13.4999 11.6713 13.4444 11.5397 13.342L4.78969 8.09203C4.71038 8.03214 4.64377 7.95709 4.59372 7.87123C4.54367 7.78537 4.51118 7.69042 4.49815 7.5919C4.48511 7.49338 4.49179 7.39325 4.51778 7.29733C4.54378 7.20142 4.58858 7.11162 4.64958 7.03316C4.71058 6.95471 4.78656 6.88916 4.87312 6.84032C4.95967 6.79149 5.05506 6.76034 5.15376 6.74869C5.25245 6.73704 5.35248 6.74513 5.44802 6.77247C5.54357 6.79981 5.63272 6.84587 5.71031 6.90797L12 11.7998L18.2897 6.90797C18.447 6.7892 18.6447 6.73711 18.84 6.76296C19.0354 6.78881 19.2128 6.89053 19.3338 7.04612C19.4547 7.20171 19.5096 7.39866 19.4865 7.59439C19.4634 7.79011 19.3642 7.96888 19.2103 8.09203Z" />
-                    </svg>
-                    <span class="inline-block w-full text-lg font-medium">contact@yannlo.com</span>
-                </li>
-                <li class="flex flex-row gap-3 items-start">
-                    <svg class="h-7 w-7  fill-red dark:fill-yellow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18.3286 22.4996C17.4136 22.4996 16.1283 22.1686 14.2036 21.0933C11.8632 19.7808 10.0529 18.5691 7.72505 16.2474C5.48068 14.0044 4.38849 12.5522 2.8599 9.77066C1.13302 6.63003 1.4274 4.98378 1.75646 4.28019C2.14834 3.43925 2.72677 2.93628 3.47443 2.43707C3.89909 2.15883 4.34849 1.92032 4.81693 1.72457C4.86381 1.70441 4.9074 1.68519 4.94631 1.66785C5.17834 1.56332 5.5299 1.40535 5.97521 1.5741C6.2724 1.68566 6.53771 1.91394 6.95302 2.3241C7.80474 3.1641 8.96865 5.03488 9.39802 5.95363C9.68631 6.57285 9.87709 6.9816 9.87755 7.44003C9.87755 7.97675 9.60756 8.39066 9.2799 8.83738C9.21849 8.92128 9.15755 9.00144 9.09849 9.07925C8.74177 9.548 8.66349 9.68347 8.71505 9.92535C8.81959 10.4114 9.59912 11.8585 10.8802 13.1368C12.1613 14.415 13.5666 15.1453 14.0546 15.2494C14.3068 15.3033 14.4451 15.2218 14.9288 14.8524C14.9982 14.7994 15.0694 14.7446 15.144 14.6897C15.6436 14.318 16.0383 14.055 16.5624 14.055H16.5652C17.0213 14.055 17.4118 14.2528 18.0586 14.5791C18.9024 15.0047 20.8294 16.1536 21.6746 17.0063C22.0857 17.4207 22.3149 17.685 22.4269 17.9818C22.5957 18.4285 22.4368 18.7786 22.3332 19.013C22.3158 19.0519 22.2966 19.0946 22.2765 19.1419C22.0792 19.6095 21.8392 20.058 21.5597 20.4816C21.0615 21.2269 20.5566 21.8039 19.7138 22.1963C19.281 22.401 18.8074 22.5047 18.3286 22.4996Z" />
-                    </svg>
-                    <span class="inline-block w-full text-lg font-medium">+233 59 879 4567</span>
-                </li>
-                <li class="flex flex-row gap-3 items-start">
-                    <svg class="h-7 w-7  fill-red dark:fill-yellow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.2603 4.7475C12.1905 4.68074 12.0976 4.64348 12.0011 4.64348C11.9045 4.64348 11.8116 4.68074 11.7418 4.7475L3.11215 12.9914C3.0755 13.0265 3.04635 13.0686 3.02644 13.1152C3.00654 13.1619 2.99631 13.2121 2.99637 13.2628L2.99496 21C2.99496 21.3978 3.153 21.7794 3.4343 22.0607C3.71561 22.342 4.09714 22.5 4.49496 22.5H8.99965C9.19856 22.5 9.38933 22.421 9.52998 22.2803C9.67063 22.1397 9.74965 21.9489 9.74965 21.75V15.375C9.74965 15.2755 9.78916 15.1802 9.85949 15.1098C9.92981 15.0395 10.0252 15 10.1247 15H13.8747C13.9741 15 14.0695 15.0395 14.1398 15.1098C14.2101 15.1802 14.2497 15.2755 14.2497 15.375V21.75C14.2497 21.9489 14.3287 22.1397 14.4693 22.2803C14.61 22.421 14.8007 22.5 14.9997 22.5H19.5025C19.9003 22.5 20.2818 22.342 20.5631 22.0607C20.8444 21.7794 21.0025 21.3978 21.0025 21V13.2628C21.0025 13.2121 20.9923 13.1619 20.9724 13.1152C20.9525 13.0686 20.9233 13.0265 20.8867 12.9914L12.2603 4.7475Z" />
-                        <path d="M23.0111 11.4445L19.5048 8.09016V3C19.5048 2.80109 19.4258 2.61032 19.2851 2.46967C19.1445 2.32902 18.9537 2.25 18.7548 2.25H16.5048C16.3059 2.25 16.1151 2.32902 15.9745 2.46967C15.8338 2.61032 15.7548 2.80109 15.7548 3V4.5L13.0398 1.90406C12.7857 1.64719 12.4079 1.5 11.9997 1.5C11.5928 1.5 11.2159 1.64719 10.9618 1.90453L0.991527 11.4436C0.699964 11.7248 0.663402 12.1875 0.928714 12.4922C0.995338 12.5691 1.07691 12.6316 1.16848 12.676C1.26004 12.7204 1.35968 12.7457 1.46133 12.7503C1.56297 12.755 1.6645 12.7389 1.75973 12.7031C1.85497 12.6672 1.94191 12.6124 2.01528 12.5419L11.7418 3.2475C11.8116 3.18074 11.9045 3.14348 12.0011 3.14348C12.0976 3.14348 12.1905 3.18074 12.2603 3.2475L21.9878 12.5419C22.1311 12.6793 22.323 12.7543 22.5215 12.7504C22.72 12.7465 22.9088 12.6641 23.0467 12.5212C23.3345 12.2231 23.3106 11.7309 23.0111 11.4445Z"/>
-                    </svg>
-                    <span class="inline-block w-full text-lg font-medium">Alajo, Accra, Ghana</span>
-                </li>
-            </ul>
-        </div>
-    </div>
+		{# Contact details #}
+		<div class="flex flex-col gap-5 lg:basis-1/6 px-3 pt-4 border-t-2 lg:border-t-0 lg:border-l-2 border-black dark:border-white">
+			<h2 class="font-bold text-2xl ">{{ "footer.contact.title" |trans }}</h2>
+			<ul class="w-full flex flex-col gap-4">
+				<li class="flex flex-row gap-3 items-start">
+					<svg class="h-7 w-7  fill-red dark:fill-yellow" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M19.875 3.75H4.125C3.42904 3.75074 2.76179 4.02755 2.26967 4.51967C1.77755 5.01179 1.50074 5.67904 1.5 6.375V17.625C1.50074 18.321 1.77755 18.9882 2.26967 19.4803C2.76179 19.9725 3.42904 20.2493 4.125 20.25H19.875C20.571 20.2493 21.2382 19.9725 21.7303 19.4803C22.2225 18.9882 22.4993 18.321 22.5 17.625V6.375C22.4993 5.67904 22.2225 5.01179 21.7303 4.51967C21.2382 4.02755 20.571 3.75074 19.875 3.75ZM19.2103 8.09203L12.4603 13.342C12.3287 13.4444 12.1667 13.4999 12 13.4999C11.8333 13.4999 11.6713 13.4444 11.5397 13.342L4.78969 8.09203C4.71038 8.03214 4.64377 7.95709 4.59372 7.87123C4.54367 7.78537 4.51118 7.69042 4.49815 7.5919C4.48511 7.49338 4.49179 7.39325 4.51778 7.29733C4.54378 7.20142 4.58858 7.11162 4.64958 7.03316C4.71058 6.95471 4.78656 6.88916 4.87312 6.84032C4.95967 6.79149 5.05506 6.76034 5.15376 6.74869C5.25245 6.73704 5.35248 6.74513 5.44802 6.77247C5.54357 6.79981 5.63272 6.84587 5.71031 6.90797L12 11.7998L18.2897 6.90797C18.447 6.7892 18.6447 6.73711 18.84 6.76296C19.0354 6.78881 19.2128 6.89053 19.3338 7.04612C19.4547 7.20171 19.5096 7.39866 19.4865 7.59439C19.4634 7.79011 19.3642 7.96888 19.2103 8.09203Z"/>
+					</svg>
+					<span class="inline-block w-full text-lg font-medium">contact@yannlo.com</span>
+				</li>
+				<li class="flex flex-row gap-3 items-start">
+					<svg class="h-7 w-7  fill-red dark:fill-yellow" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M18.3286 22.4996C17.4136 22.4996 16.1283 22.1686 14.2036 21.0933C11.8632 19.7808 10.0529 18.5691 7.72505 16.2474C5.48068 14.0044 4.38849 12.5522 2.8599 9.77066C1.13302 6.63003 1.4274 4.98378 1.75646 4.28019C2.14834 3.43925 2.72677 2.93628 3.47443 2.43707C3.89909 2.15883 4.34849 1.92032 4.81693 1.72457C4.86381 1.70441 4.9074 1.68519 4.94631 1.66785C5.17834 1.56332 5.5299 1.40535 5.97521 1.5741C6.2724 1.68566 6.53771 1.91394 6.95302 2.3241C7.80474 3.1641 8.96865 5.03488 9.39802 5.95363C9.68631 6.57285 9.87709 6.9816 9.87755 7.44003C9.87755 7.97675 9.60756 8.39066 9.2799 8.83738C9.21849 8.92128 9.15755 9.00144 9.09849 9.07925C8.74177 9.548 8.66349 9.68347 8.71505 9.92535C8.81959 10.4114 9.59912 11.8585 10.8802 13.1368C12.1613 14.415 13.5666 15.1453 14.0546 15.2494C14.3068 15.3033 14.4451 15.2218 14.9288 14.8524C14.9982 14.7994 15.0694 14.7446 15.144 14.6897C15.6436 14.318 16.0383 14.055 16.5624 14.055H16.5652C17.0213 14.055 17.4118 14.2528 18.0586 14.5791C18.9024 15.0047 20.8294 16.1536 21.6746 17.0063C22.0857 17.4207 22.3149 17.685 22.4269 17.9818C22.5957 18.4285 22.4368 18.7786 22.3332 19.013C22.3158 19.0519 22.2966 19.0946 22.2765 19.1419C22.0792 19.6095 21.8392 20.058 21.5597 20.4816C21.0615 21.2269 20.5566 21.8039 19.7138 22.1963C19.281 22.401 18.8074 22.5047 18.3286 22.4996Z"/>
+					</svg>
+					<span class="inline-block w-full text-lg font-medium">+233 59 879 4567</span>
+				</li>
+				<li class="flex flex-row gap-3 items-start">
+					<svg class="h-7 w-7  fill-red dark:fill-yellow" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M12.2603 4.7475C12.1905 4.68074 12.0976 4.64348 12.0011 4.64348C11.9045 4.64348 11.8116 4.68074 11.7418 4.7475L3.11215 12.9914C3.0755 13.0265 3.04635 13.0686 3.02644 13.1152C3.00654 13.1619 2.99631 13.2121 2.99637 13.2628L2.99496 21C2.99496 21.3978 3.153 21.7794 3.4343 22.0607C3.71561 22.342 4.09714 22.5 4.49496 22.5H8.99965C9.19856 22.5 9.38933 22.421 9.52998 22.2803C9.67063 22.1397 9.74965 21.9489 9.74965 21.75V15.375C9.74965 15.2755 9.78916 15.1802 9.85949 15.1098C9.92981 15.0395 10.0252 15 10.1247 15H13.8747C13.9741 15 14.0695 15.0395 14.1398 15.1098C14.2101 15.1802 14.2497 15.2755 14.2497 15.375V21.75C14.2497 21.9489 14.3287 22.1397 14.4693 22.2803C14.61 22.421 14.8007 22.5 14.9997 22.5H19.5025C19.9003 22.5 20.2818 22.342 20.5631 22.0607C20.8444 21.7794 21.0025 21.3978 21.0025 21V13.2628C21.0025 13.2121 20.9923 13.1619 20.9724 13.1152C20.9525 13.0686 20.9233 13.0265 20.8867 12.9914L12.2603 4.7475Z"/>
+						<path d="M23.0111 11.4445L19.5048 8.09016V3C19.5048 2.80109 19.4258 2.61032 19.2851 2.46967C19.1445 2.32902 18.9537 2.25 18.7548 2.25H16.5048C16.3059 2.25 16.1151 2.32902 15.9745 2.46967C15.8338 2.61032 15.7548 2.80109 15.7548 3V4.5L13.0398 1.90406C12.7857 1.64719 12.4079 1.5 11.9997 1.5C11.5928 1.5 11.2159 1.64719 10.9618 1.90453L0.991527 11.4436C0.699964 11.7248 0.663402 12.1875 0.928714 12.4922C0.995338 12.5691 1.07691 12.6316 1.16848 12.676C1.26004 12.7204 1.35968 12.7457 1.46133 12.7503C1.56297 12.755 1.6645 12.7389 1.75973 12.7031C1.85497 12.6672 1.94191 12.6124 2.01528 12.5419L11.7418 3.2475C11.8116 3.18074 11.9045 3.14348 12.0011 3.14348C12.0976 3.14348 12.1905 3.18074 12.2603 3.2475L21.9878 12.5419C22.1311 12.6793 22.323 12.7543 22.5215 12.7504C22.72 12.7465 22.9088 12.6641 23.0467 12.5212C23.3345 12.2231 23.3106 11.7309 23.0111 11.4445Z"/>
+					</svg>
+					<span class="inline-block w-full text-lg font-medium">Alajo, Accra, Ghana</span>
+				</li>
+			</ul>
+		</div>
+	</div>
 
-    {# secondary containt  #}
-    <div class="flex flex-row justify-between items-center 2xl:px-24">
-        <label 
-        data-theme-toggle
-        tabindex="0"
-        aria-labelledby="switch-name"
-        role="switch"
-        {% if theme.get() == "dark" %}aria-checked="true"{% else %}aria-checked="false"{% endif %}
-        class="cursor-pointer w-fit flex flex-row gap-3 justify-center items-center"
-        for="checkbox-switch">
-            <div class="w-12 h-6 p-1 bg-gray rounded-full dark:bg-yellow items-center inline-flex">
-                <div class="w-4 h-4 relative left-0 transition-transform duration-300 dark:translate-x-6 bg-white rounded-full dark:bg-black"></div>
-            </div>
-            <span id="switch-name"class="font-medium text-xl leading-6" {% if app.locale != "en" %} lang='en'{% endif %} >Dark mode</span>
-        </label>
-        <button id="open-lang-modal" class="flex flex-row items-center gap-3 px-4 py-2 rounded-lg transition-colors duration-300 active:transition-none hover:bg-gray-light active:bg-gray dark:hover:bg-gray-dark/60 dark:active:bg-gray-dark" >
-            <svg class="h-8 w-8 transition-colors duration-300 fill-black dark:fill-white" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 16.625C2 8.89334 8.26834 2.625 16 2.625C23.7317 2.625 30 8.89334 30 16.625C30 24.3567 23.7317 30.625 16 30.625C8.26834 30.625 2 24.3567 2 16.625ZM20.966 27.5523C21.9532 27.1029 22.8689 26.5237 23.6912 25.8363C23.2684 25.5589 22.8262 25.3035 22.3669 25.0723C22.1765 25.5026 21.9724 25.9135 21.7561 26.3029C21.5129 26.7407 21.2489 27.1596 20.966 27.5523ZM23.0723 23.19C23.7983 23.5428 24.4893 23.9485 25.1393 24.4016C26.7208 22.5448 27.7464 20.2001 27.9589 17.625H24.0207C23.9358 19.6197 23.5998 21.5059 23.0723 23.19ZM22.0187 17.625C21.938 19.3612 21.6502 20.987 21.2138 22.4295C19.8855 21.9821 18.4706 21.7011 17 21.613V17.625H22.0187ZM24.0207 15.625H27.9589C27.7464 13.0499 26.7208 10.7052 25.1393 8.84844C24.4893 9.30151 23.7983 9.70717 23.0723 10.06C23.5998 11.7441 23.9358 13.6303 24.0207 15.625ZM21.2138 10.8205C21.6502 12.263 21.938 13.8888 22.0187 15.625H17V11.637C18.4706 11.5489 19.8855 11.2679 21.2138 10.8205ZM22.3669 8.17772C22.8262 7.94649 23.2684 7.69113 23.6912 7.41365C22.8689 6.72635 21.9532 6.14707 20.966 5.69766C21.2489 6.0904 21.5129 6.50925 21.7561 6.94715C21.9724 7.33653 22.1765 7.74744 22.3669 8.17772ZM11.034 5.69766C10.0468 6.14707 9.13109 6.72635 8.30883 7.41365C8.73163 7.69113 9.17377 7.94649 9.63315 8.17772C9.82354 7.74744 10.0276 7.33653 10.2439 6.94715C10.4871 6.50925 10.7511 6.0904 11.034 5.69766ZM8.92772 10.06C8.20175 9.70717 7.51067 9.30151 6.86071 8.84844C5.27924 10.7052 4.25355 13.0499 4.04108 15.625H7.97935C8.0642 13.6303 8.40017 11.7441 8.92772 10.06ZM9.9813 15.625C10.062 13.8888 10.3498 12.263 10.7862 10.8205C12.1145 11.2679 13.5294 11.5489 15 11.637V15.625H9.9813ZM7.97935 17.625H4.04108C4.25356 20.2001 5.27924 22.5448 6.86071 24.4016C7.51067 23.9485 8.20175 23.5428 8.92772 23.19C8.40017 21.5059 8.0642 19.6197 7.97935 17.625ZM10.7862 22.4295C10.3498 20.987 10.062 19.3612 9.9813 17.625H15V21.613C13.5294 21.7011 12.1145 21.9821 10.7862 22.4295ZM9.63315 25.0723C9.82354 25.5026 10.0276 25.9135 10.2439 26.3029C10.4871 26.7407 10.7511 27.1596 11.034 27.5523C10.0468 27.1029 9.13109 26.5237 8.30883 25.8363C8.73163 25.5589 9.17377 25.3035 9.63315 25.0723ZM11.4812 24.3059C12.5901 23.9378 13.7706 23.7008 15 23.6171V28.4195C13.9918 28.0147 12.9219 27.0053 11.9922 25.3317C11.8128 25.0087 11.642 24.6662 11.4812 24.3059ZM17 23.6171C18.2294 23.7008 19.4099 23.9378 20.5188 24.3059C20.358 24.6662 20.1872 25.0087 20.0078 25.3317C19.0781 27.0053 18.0082 28.0147 17 28.4195V23.6171ZM15 9.63293C13.7706 9.54915 12.5901 9.31224 11.4812 8.94409C11.642 8.58379 11.8128 8.2413 11.9922 7.91832C12.9219 6.24474 13.9918 5.23527 15 4.83049V9.63293ZM17 9.63293C18.2294 9.54915 19.4099 9.31224 20.5188 8.94409C20.358 8.58379 20.1872 8.2413 20.0078 7.91832C19.0781 6.24474 18.0082 5.23527 17 4.83049V9.63293Z"/>
-            </svg>
-            <span class="font-medium text-xl transition-colors duration-300">{{ "footer.lang.name" |trans }}</span>
-        </button>
-    </div>
+	{# secondary containt  #}
+	<div class="flex flex-row justify-between items-center 2xl:px-24">
+		<label data-theme-toggle tabindex="0" aria-labelledby="switch-name" role="switch" {% if theme.get() == "dark" %} aria-checked="true" {% else %} aria-checked="false" {% endif %} class="cursor-pointer w-fit flex flex-row gap-3 justify-center items-center" for="checkbox-switch">
+			<div class="w-12 h-6 p-1 bg-gray rounded-full dark:bg-yellow items-center inline-flex">
+				<div class="w-4 h-4 relative left-0 transition-transform duration-300 dark:translate-x-6 bg-white rounded-full dark:bg-black"></div>
+			</div>
+			<span id="switch-name" class="font-medium text-xl leading-6" {% if app.locale != "en" %} lang='en' {% endif %}>Dark mode</span>
+		</label>
+		<button id="open-lang-modal" class="flex flex-row items-center gap-3 px-4 py-2 rounded-lg transition-colors duration-300 active:transition-none hover:bg-gray-light active:bg-gray dark:hover:bg-gray-dark/60 dark:active:bg-gray-dark">
+			<svg class="h-8 w-8 transition-colors duration-300 fill-black dark:fill-white" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M2 16.625C2 8.89334 8.26834 2.625 16 2.625C23.7317 2.625 30 8.89334 30 16.625C30 24.3567 23.7317 30.625 16 30.625C8.26834 30.625 2 24.3567 2 16.625ZM20.966 27.5523C21.9532 27.1029 22.8689 26.5237 23.6912 25.8363C23.2684 25.5589 22.8262 25.3035 22.3669 25.0723C22.1765 25.5026 21.9724 25.9135 21.7561 26.3029C21.5129 26.7407 21.2489 27.1596 20.966 27.5523ZM23.0723 23.19C23.7983 23.5428 24.4893 23.9485 25.1393 24.4016C26.7208 22.5448 27.7464 20.2001 27.9589 17.625H24.0207C23.9358 19.6197 23.5998 21.5059 23.0723 23.19ZM22.0187 17.625C21.938 19.3612 21.6502 20.987 21.2138 22.4295C19.8855 21.9821 18.4706 21.7011 17 21.613V17.625H22.0187ZM24.0207 15.625H27.9589C27.7464 13.0499 26.7208 10.7052 25.1393 8.84844C24.4893 9.30151 23.7983 9.70717 23.0723 10.06C23.5998 11.7441 23.9358 13.6303 24.0207 15.625ZM21.2138 10.8205C21.6502 12.263 21.938 13.8888 22.0187 15.625H17V11.637C18.4706 11.5489 19.8855 11.2679 21.2138 10.8205ZM22.3669 8.17772C22.8262 7.94649 23.2684 7.69113 23.6912 7.41365C22.8689 6.72635 21.9532 6.14707 20.966 5.69766C21.2489 6.0904 21.5129 6.50925 21.7561 6.94715C21.9724 7.33653 22.1765 7.74744 22.3669 8.17772ZM11.034 5.69766C10.0468 6.14707 9.13109 6.72635 8.30883 7.41365C8.73163 7.69113 9.17377 7.94649 9.63315 8.17772C9.82354 7.74744 10.0276 7.33653 10.2439 6.94715C10.4871 6.50925 10.7511 6.0904 11.034 5.69766ZM8.92772 10.06C8.20175 9.70717 7.51067 9.30151 6.86071 8.84844C5.27924 10.7052 4.25355 13.0499 4.04108 15.625H7.97935C8.0642 13.6303 8.40017 11.7441 8.92772 10.06ZM9.9813 15.625C10.062 13.8888 10.3498 12.263 10.7862 10.8205C12.1145 11.2679 13.5294 11.5489 15 11.637V15.625H9.9813ZM7.97935 17.625H4.04108C4.25356 20.2001 5.27924 22.5448 6.86071 24.4016C7.51067 23.9485 8.20175 23.5428 8.92772 23.19C8.40017 21.5059 8.0642 19.6197 7.97935 17.625ZM10.7862 22.4295C10.3498 20.987 10.062 19.3612 9.9813 17.625H15V21.613C13.5294 21.7011 12.1145 21.9821 10.7862 22.4295ZM9.63315 25.0723C9.82354 25.5026 10.0276 25.9135 10.2439 26.3029C10.4871 26.7407 10.7511 27.1596 11.034 27.5523C10.0468 27.1029 9.13109 26.5237 8.30883 25.8363C8.73163 25.5589 9.17377 25.3035 9.63315 25.0723ZM11.4812 24.3059C12.5901 23.9378 13.7706 23.7008 15 23.6171V28.4195C13.9918 28.0147 12.9219 27.0053 11.9922 25.3317C11.8128 25.0087 11.642 24.6662 11.4812 24.3059ZM17 23.6171C18.2294 23.7008 19.4099 23.9378 20.5188 24.3059C20.358 24.6662 20.1872 25.0087 20.0078 25.3317C19.0781 27.0053 18.0082 28.0147 17 28.4195V23.6171ZM15 9.63293C13.7706 9.54915 12.5901 9.31224 11.4812 8.94409C11.642 8.58379 11.8128 8.2413 11.9922 7.91832C12.9219 6.24474 13.9918 5.23527 15 4.83049V9.63293ZM17 9.63293C18.2294 9.54915 19.4099 9.31224 20.5188 8.94409C20.358 8.58379 20.1872 8.2413 20.0078 7.91832C19.0781 6.24474 18.0082 5.23527 17 4.83049V9.63293Z"/>
+			</svg>
+			<span class="font-medium text-xl transition-colors duration-300">{{ "footer.lang.name" |trans }}</span>
+		</button>
+	</div>
 
-    {# copyright containt  #}
-    <div class="flex flex-col-reverse sm:flex-row sm:justify-between gap-4 p-4 w-full items-center border-t-2 border-black dark:border-white">
-        <p {% if app.locale != "en" %} lang='en'{% endif %} >Copyright 2022 <strong class="font-medium">YannLo</strong> - All right reserved.</p>
-        <ul class="flex flex-row gap-5">
-            <li class="w-fit "><a href="#"><img class="w-7 h-7 object-contain" data-image-with-theme src="{{ asset(image_with_theme('icons/github.png')) }}" alt="logo of Github"></a></li>
-            <li class="w-fit "><a href="#"><img class="w-7 h-7 object-contain" src="{{ asset("build/images/icons/indeed.png") }}" alt="logo of Indeed"></a></li>
-            <li class="w-fit "><a href="#"><img class="w-7 h-7 object-contain" src="{{ asset("build/images/icons/linked-in.png") }}" alt="logo of LinkedIn"></a></li>
-        </ul>
-    </div>
+	{# copyright containt  #}
+	<div class="flex flex-col-reverse sm:flex-row sm:justify-between gap-4 p-4 w-full items-center border-t-2 border-black dark:border-white">
+		<p {% if app.locale != "en" %} lang='en' {% endif %}>Copyright 2022
+			<strong class="font-medium">YannLo</strong>
+			- All right reserved.</p>
+		<ul class="flex flex-row gap-5">
+			<li class="w-fit ">
+				<a href="https://github.com/yannlo"><img class="w-7 h-7 object-contain" data-image-with-theme src="{{ asset(image_with_theme('icons/github.png')) }}" alt="logo of Github"></a>
+			</li>
+			<li class="w-fit ">
+				<a href="https://profile.indeed.com/p/yannloce-jwqmx54"><img class="w-7 h-7 object-contain" src="{{ asset("build/images/icons/indeed.png") }}" alt="logo of Indeed"></a>
+			</li>
+			<li class="w-fit ">
+				<a href="https://www.linkedin.com/in/yann-lo%C3%AFc-ehui-6a3079257/"><img class="w-7 h-7 object-contain" src="{{ asset("build/images/icons/linked-in.png") }}" alt="logo of LinkedIn"></a>
+			</li>
+		</ul>
+	</div>
 
-    <div
-        data-popup
-        aria-hidden="true"
-        role="dialog"
-        aria-modal="false"
-        aria-labelledby="popup-title"
-        data-focusables='button, a'
-        data-btn="open-lang-modal"
-        class="hidden animate-open-popup fixed top-0 bottom-0 left-0  right-0 z-40 items-center justify-center bg-gray-light/60 dark:bg-gray-dark/60">
-        <div  
-            data-popup-container
-            class ='bg-white dark:bg-black animate-open-popup-container p-8 flex flex-col gap-10 rounded-lg w-full mx-5 max-w-md'>
-            <h3 id="popup-title" class="text-3xl font-medium text-center">{{ "footer.lang.title" |trans }}</h2>
-            <div class="flex flex-row justify-evenly ">
-                <a 
-                data-lang-link
-                href="{{ path(app.current_route, app.current_route_parameters|merge({"_locale": "en"}) ) }}" {% if app.locale != "en" %} lang='en'{% endif %} class="flex flex-row items-center gap-3 px-4 py-2 rounded-lg transition-colors duration-300 active:transition-none hover:bg-gray-light active:bg-gray dark:hover:bg-gray-dark/60 dark:active:bg-gray-dark ">
-                    <span class="font-medium text-xl">English</span>
-                </a>
-                <a 
-                data-lang-link
-                href="{{ path(app.current_route, app.current_route_parameters|merge({"_locale": "fr"}) ) }}" {% if app.locale != "fr" %} lang='fr'{% endif %} class="flex flex-row items-center gap-3 px-4 py-2 rounded-lg transition-colors duration-300 active:transition-none hover:bg-gray-light active:bg-gray dark:hover:bg-gray-dark/60 dark:active:bg-gray-dark ">
-                    <span class="font-medium text-xl">Français</span>
-                </a>
-            </div>
-        </div>
-    </div>
+	<div data-popup aria-hidden="true" role="dialog" aria-modal="false" aria-labelledby="popup-title" data-focusables='button, a' data-btn="open-lang-modal" class="hidden animate-open-popup fixed top-0 bottom-0 left-0  right-0 z-40 items-center justify-center bg-gray-light/60 dark:bg-gray-dark/60">
+		<div data-popup-container class='bg-white dark:bg-black animate-open-popup-container p-8 flex flex-col gap-10 rounded-lg w-full mx-5 max-w-md'>
+			<h3 id="popup-title" class="text-3xl font-medium text-center">{{ "footer.lang.title" |trans }}</h2>
+			<div class="flex flex-row justify-evenly ">
+				<a data-lang-link href="{{ path(app.current_route, app.current_route_parameters|merge({"_locale": "en"}) ) }}" {% if app.locale != "en" %} lang='en' {% endif %} class="flex flex-row items-center gap-3 px-4 py-2 rounded-lg transition-colors duration-300 active:transition-none hover:bg-gray-light active:bg-gray dark:hover:bg-gray-dark/60 dark:active:bg-gray-dark ">
+					<span class="font-medium text-xl">English</span>
+				</a>
+				<a data-lang-link href="{{ path(app.current_route, app.current_route_parameters|merge({"_locale": "fr"}) ) }}" {% if app.locale != "fr" %} lang='fr' {% endif %} class="flex flex-row items-center gap-3 px-4 py-2 rounded-lg transition-colors duration-300 active:transition-none hover:bg-gray-light active:bg-gray dark:hover:bg-gray-dark/60 dark:active:bg-gray-dark ">
+					<span class="font-medium text-xl">Français</span>
+				</a>
+			</div>
+		</div>
+	</div>
 </footer>

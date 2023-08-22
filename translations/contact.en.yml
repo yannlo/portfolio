@@ -1,0 +1,18 @@
+title: "Contact me"
+
+message: "Please don't hesitate to contact me, if you have any questions about my profile or if you'd like to work with me on new projects."
+
+details: "My contact details"
+
+form: 
+    title: "Contact form"
+
+    name: "Enter your name"
+
+    email: "Enter your email"
+
+    subject: "Enter the message's subject"
+
+    message: "Enter the message"
+
+    submit: "Send"

@@ -1,7 +1,80 @@
 {% extends 'main/layout.html.twig' %}
 
-{% block title "Contact page " ~ app.locale %}
+
+{% trans_default_domain 'contact' %}
+
+{% block title  "title"|trans ~ " | YannLo" %}
 
 {% block main %}
-<h1>Contact Form</h1>
+	<section class='w-full flex flex-col max-w-7xl mx-auto items-center gap-16 py-24 px-6 md:px-20 xl:px-0 lg:py-32 '>
+		<div class="w-full flex flex-col gap-8">
+			<h1 class="font-bold text-4xl center leading-tight text-center capitalize sm:leading-tight sm:text-5xl">{{ "title" |trans }}</h1>
+			<p>{{ "message" |trans }}</p>
+		</div>
+		<div class="w-full flex flex-col gap-16 md:flex-row">
+			<div class="w-full flex flex-col gap-10 md:order-2">
+				<h2 class="font-medium text-3xl sm:text-4xl">{{ "details" |trans }}</h2>
+				<div class="w-full flex flex-col gap-8">
+					<img data-image-with-theme src="{{ asset(image_with_theme('illustrations/chatting.png')) }}" class="object-contain h-fit" alt="Chatting box">
+					<ul class="w-full flex flex-col gap-6">
+						<li class="w-full flex flex-row gap-3 items-center">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-black dark:fill-white" viewbox="0 0 32 32">
+								<path d="M26.5 5.16553H5.5C4.57205 5.16652 3.68238 5.53559 3.02622 6.19175C2.37006 6.84791 2.00099 7.73757 2 8.66553V23.6655C2.00099 24.5935 2.37006 25.4831 3.02622 26.1393C3.68238 26.7955 4.57205 27.1645 5.5 27.1655H26.5C27.428 27.1645 28.3176 26.7955 28.9738 26.1393C29.6299 25.4831 29.999 24.5935 30 23.6655V8.66553C29.999 7.73757 29.6299 6.84791 28.9738 6.19175C28.3176 5.53559 27.428 5.16652 26.5 5.16553ZM25.6138 10.9549L16.6138 17.9549C16.4382 18.0913 16.2223 18.1654 16 18.1654C15.7777 18.1654 15.5618 18.0913 15.3862 17.9549L6.38625 10.9549C6.28051 10.875 6.19169 10.775 6.12496 10.6605C6.05823 10.546 6.01491 10.4194 5.99753 10.2881C5.98015 10.1567 5.98905 10.0232 6.02371 9.89531C6.05837 9.76741 6.1181 9.64769 6.19944 9.54308C6.28077 9.43847 6.38208 9.35107 6.49749 9.28596C6.61289 9.22084 6.74008 9.17931 6.87168 9.16378C7.00327 9.14825 7.13664 9.15903 7.26403 9.19549C7.39142 9.23194 7.5103 9.29335 7.61375 9.37615L16 15.8987L24.3862 9.37615C24.596 9.21779 24.8596 9.14834 25.1201 9.18281C25.3806 9.21728 25.617 9.3529 25.7783 9.56035C25.9396 9.76781 26.0128 10.0304 25.982 10.2914C25.9512 10.5523 25.8189 10.7907 25.6138 10.9549Z"/>
+							</svg>
+							<span class="text-xl font-medium">contact@yannlo.com</span>
+						</li>
+						<li class="w-full flex flex-row gap-3 items-center">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-black dark:fill-white" viewbox="0 0 32 32">
+								<path d="M24.4382 30.016C23.2182 30.016 21.5044 29.5748 18.9382 28.141C15.8176 26.391 13.4038 24.7754 10.3001 21.6798C7.30757 18.6891 5.85132 16.7529 3.8132 13.0441C1.5107 8.85665 1.9032 6.66165 2.34195 5.72352C2.86445 4.60227 3.6357 3.93165 4.63257 3.26602C5.19879 2.89504 5.79799 2.57703 6.42257 2.31602C6.48507 2.28915 6.5432 2.26352 6.59507 2.2404C6.90445 2.10102 7.3732 1.8904 7.96695 2.1154C8.3632 2.26415 8.71695 2.56852 9.2707 3.1154C10.4063 4.2354 11.9582 6.72977 12.5307 7.95477C12.9151 8.7804 13.1694 9.3254 13.1701 9.93665C13.1701 10.6523 12.8101 11.2041 12.3732 11.7998C12.2913 11.9116 12.2101 12.0185 12.1313 12.1223C11.6557 12.7473 11.5513 12.9279 11.6201 13.2504C11.7594 13.8985 12.7988 15.8279 14.5069 17.5323C16.2151 19.2366 18.0888 20.2104 18.7394 20.3491C19.0757 20.421 19.2601 20.3123 19.9051 19.8198C19.9976 19.7491 20.0926 19.676 20.1919 19.6029C20.8582 19.1073 21.3844 18.7566 22.0832 18.7566H22.0869C22.6951 18.7566 23.2157 19.0204 24.0782 19.4554C25.2032 20.0229 27.7726 21.5548 28.8994 22.6916C29.4476 23.2441 29.7532 23.5966 29.9026 23.9923C30.1276 24.5879 29.9157 25.0548 29.7776 25.3673C29.7544 25.4191 29.7288 25.476 29.7019 25.5391C29.4389 26.1626 29.119 26.7606 28.7463 27.3254C28.0819 28.3191 27.4088 29.0885 26.2851 29.6116C25.708 29.8846 25.0765 30.0229 24.4382 30.016Z"/>
+							</svg>
+							<span class="text-xl font-medium">+233 59 879 4567</span>
+						</li>
+						<li class="w-full flex flex-row gap-3 items-center">
+							<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-black dark:fill-white" viewbox="0 0 32 32">
+								<path d="M16.347 6.3466C16.254 6.25759 16.1302 6.20791 16.0014 6.20791C15.8726 6.20791 15.7488 6.25759 15.6558 6.3466L4.14953 17.3385C4.10067 17.3852 4.06179 17.4414 4.03526 17.5036C4.00872 17.5658 3.99508 17.6327 3.99516 17.7004L3.99329 28.0166C3.99329 28.547 4.204 29.0557 4.57907 29.4308C4.95414 29.8059 5.46285 30.0166 5.99329 30.0166H11.9995C12.2648 30.0166 12.5191 29.9112 12.7066 29.7237C12.8942 29.5362 12.9995 29.2818 12.9995 29.0166V20.5166C12.9995 20.384 13.0522 20.2568 13.146 20.163C13.2397 20.0693 13.3669 20.0166 13.4995 20.0166H18.4995C18.6321 20.0166 18.7593 20.0693 18.8531 20.163C18.9469 20.2568 18.9995 20.384 18.9995 20.5166V29.0166C18.9995 29.2818 19.1049 29.5362 19.2924 29.7237C19.48 29.9112 19.7343 30.0166 19.9995 30.0166H26.0033C26.5337 30.0166 27.0424 29.8059 27.4175 29.4308C27.7926 29.0557 28.0033 28.547 28.0033 28.0166V17.7004C28.0034 17.6327 27.9897 17.5658 27.9632 17.5036C27.9366 17.4414 27.8978 17.3852 27.8489 17.3385L16.347 6.3466Z"/>
+								<path d="M30.6814 15.276L26.0064 10.8035V4.0166C26.0064 3.75139 25.901 3.49703 25.7135 3.30949C25.526 3.12196 25.2716 3.0166 25.0064 3.0166H22.0064C21.7412 3.0166 21.4868 3.12196 21.2993 3.30949C21.1118 3.49703 21.0064 3.75139 21.0064 4.0166V6.0166L17.3864 2.55535C17.0477 2.21285 16.5439 2.0166 15.9995 2.0166C15.457 2.0166 14.9545 2.21285 14.6158 2.55598L1.32204 15.2747C0.933285 15.6497 0.884535 16.2666 1.23829 16.6729C1.32712 16.7754 1.43589 16.8588 1.55797 16.918C1.68006 16.9771 1.81291 17.0108 1.94844 17.017C2.08396 17.0232 2.21934 17.0018 2.34631 16.954C2.47329 16.9062 2.58922 16.8331 2.68704 16.7391L15.6558 4.3466C15.7488 4.25759 15.8726 4.20791 16.0014 4.20791C16.1302 4.20791 16.254 4.25759 16.347 4.3466L29.317 16.7391C29.5081 16.9223 29.764 17.0223 30.0287 17.0172C30.2933 17.012 30.5451 16.9021 30.7289 16.7116C31.1127 16.3141 31.0808 15.6579 30.6814 15.276Z"/>
+							</svg>
+							<span class="text-xl font-medium">Alajo, Accra, Ghana</span>
+						</li>
+					</ul>
+					<ul class="flex flex-row gap-10 justify-center items-center">
+						<li class="w-fit ">
+							<a href="https://github.com/yannlo"><img class="w-9 h-9 object-contain" data-image-with-theme src="{{ asset(image_with_theme('icons/github.png')) }}" alt="logo of Github"></a>
+						</li>
+						<li class="w-fit ">
+							<a href="https://profile.indeed.com/p/yannloce-jwqmx54"><img class="w-9 h-9 object-contain" src="{{ asset("build/images/icons/indeed.png") }}" alt="logo of Indeed"></a>
+						</li>
+						<li class="w-fit ">
+							<a href="https://www.linkedin.com/in/yann-lo%C3%AFc-ehui-6a3079257/"><img class="w-9 h-9 object-contain" src="{{ asset("build/images/icons/linked-in.png") }}" alt="logo of LinkedIn"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="w-full flex flex-col gap-10 md:order-1">
+				<h2 class="font-medium text-3xl sm:text-4xl">{{ "form.title" |trans }}</h2>
+				<form class="flex flex-col gap-6">
+					<div class="flex flex-col gap-2 ">
+						<label class="inline-block w-full font-medium text-xl" for="filter_key_word">{{ "form.name" |trans }}</label>
+						<input class="bg-gray-light dark:bg-gray-dark focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow  p-2 rounded " id="filter_key_word" name="filter_key_word" type="filter_key_word">
+					</div>
+					<div class="flex flex-col gap-2 ">
+						<label class="inline-block w-full font-medium text-xl" for="filter_key_word">{{ "form.email" |trans }}</label>
+						<input class="bg-gray-light dark:bg-gray-dark focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow  p-2 rounded " id="filter_key_word" name="filter_key_word" type="filter_key_word">
+					</div>
+					<div class="flex flex-col gap-2 ">
+						<label class="inline-block w-full font-medium text-xl" for="filter_key_word">{{ "form.subject" |trans }}</label>
+						<input class="bg-gray-light dark:bg-gray-dark focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow  p-2 rounded " id="filter_key_word" name="filter_key_word" type="filter_key_word">
+					</div>
+					<div class="flex flex-col gap-2 ">
+						<label class="inline-block w-full font-medium text-xl" for="filter_key_word">{{ "form.message" |trans }}</label>
+						<textarea class="bg-gray-light min-h-[150px] dark:bg-gray-dark focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow  p-2 rounded " id="filter_key_word" name="filter_key_word" type="filter_key_word"></textarea>
+					</div>
+					<div class="flex flex-col gap-2 mt-2 w-full items-center ">
+						<button class="btn btn--primary" type="submit">{{ "form.submit" |trans }}</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</section>
 {% endblock %}

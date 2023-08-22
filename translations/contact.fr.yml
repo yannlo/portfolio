@@ -1,0 +1,18 @@
+title: "Contactez moi"
+
+message: "N'hésitez pas à me contacter, si vous avez d'éventuelles questions sur mon profil ou si vous souhaiter travailler avec moi sur de nouveaux projets."
+
+details: "Mes coordonnées"
+
+form: 
+    title: "Formulaire de contact"
+
+    name: "Entrer votre nom"
+
+    email: "Entrer votre email"
+
+    subject: "Entrer l'objet du message"
+
+    message: "Entrer le message"
+
+    submit: "Envoyer"
