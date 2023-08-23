@@ -6,8 +6,8 @@ export default class Popup {
     /** @type {HTMLDivElement} */
     #container;
 
-    /** @type {HTMLButtonElement} */
-    #btn;
+    /** @type {HTMLButtonElement|null} */
+    #btn=null;
 
 
     /** @type {HTMLElement[]} */
@@ -28,18 +28,21 @@ export default class Popup {
         console.log('found it');
         this.#popup = elt
         this.#container = this.#popup.querySelector("[data-popup-container]")
-        this.#btn = document.getElementById(elt.dataset.btn);
-
+        
         if (this.#popup.dataset.focusables) {
             this.#focusables = Array.from(
                 this.#popup
-                    .querySelectorAll(
+                .querySelectorAll(
                         this.#popup.dataset.focusables
                     )
-            )
+                    )
+        }
+        
+        if(elt.dataset.btn){
+            this.#btn = document.getElementById(elt.dataset.btn);
+            this.#btn.addEventListener("click", e => this.#open(e));
         }
 
-        this.#btn.addEventListener("click", e => this.#open(e));
         this.#popup.addEventListener("click", e => this.#close(e));
 
         this.#container
@@ -124,6 +127,12 @@ export default class Popup {
 
         if (Popup.PREV_FOCUSED) {
             Popup.PREV_FOCUSED.focus();
+        }
+
+        if(this.#btn === null){
+            setTimeout(() => {
+                this.#popup.remove()
+            }, 4000);
         }
     }
 }

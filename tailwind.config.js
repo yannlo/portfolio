@@ -11,7 +11,9 @@ module.exports = {
   ],
 
   safelist: [
-    "w-1/12",
+    "min-h-[150px]",
+    "mb-6",
+    "mb-8",
     "w-2/12",
     "w-3/12",
     "w-4/12",

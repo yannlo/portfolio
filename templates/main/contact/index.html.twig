@@ -6,6 +6,14 @@
 {% block title  "title"|trans ~ " | YannLo" %}
 
 {% block main %}
+	{% for message in app.flashes('message_sending') %}
+		<div data-popup aria-hidden="false" role="dialog" aria-modal="true" aria-labelledby="popup-title" class="flex animate-open-popup fixed top-0 bottom-0 left-0  right-0 z-40 items-center justify-center bg-gray-light/60 dark:bg-gray-dark/60">
+			<div data-popup-container class='bg-white dark:bg-black animate-open-popup-container p-8 flex flex-col gap-10 rounded-lg w-full mx-5 max-w-md'>
+				<h3 id="popup-title" class="text-3xl font-medium text-center">{{ message |trans }}</h2>
+			</div>
+		</div>
+	{% endfor %}
+
 	<section class='w-full flex flex-col max-w-7xl mx-auto items-center gap-16 py-24 px-6 md:px-20 xl:px-0 lg:py-32 '>
 		<div class="w-full flex flex-col gap-8">
 			<h1 class="font-bold text-4xl center leading-tight text-center capitalize sm:leading-tight sm:text-5xl">{{ "title" |trans }}</h1>
@@ -52,28 +60,38 @@
 			</div>
 			<div class="w-full flex flex-col gap-10 md:order-1">
 				<h2 class="font-medium text-3xl sm:text-4xl">{{ "form.title" |trans }}</h2>
-				<form class="flex flex-col gap-6">
-					<div class="flex flex-col gap-2 ">
-						<label class="inline-block w-full font-medium text-xl" for="filter_key_word">{{ "form.name" |trans }}</label>
-						<input class="bg-gray-light dark:bg-gray-dark focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow  p-2 rounded " id="filter_key_word" name="filter_key_word" type="filter_key_word">
-					</div>
-					<div class="flex flex-col gap-2 ">
-						<label class="inline-block w-full font-medium text-xl" for="filter_key_word">{{ "form.email" |trans }}</label>
-						<input class="bg-gray-light dark:bg-gray-dark focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow  p-2 rounded " id="filter_key_word" name="filter_key_word" type="filter_key_word">
-					</div>
-					<div class="flex flex-col gap-2 ">
-						<label class="inline-block w-full font-medium text-xl" for="filter_key_word">{{ "form.subject" |trans }}</label>
-						<input class="bg-gray-light dark:bg-gray-dark focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow  p-2 rounded " id="filter_key_word" name="filter_key_word" type="filter_key_word">
-					</div>
-					<div class="flex flex-col gap-2 ">
-						<label class="inline-block w-full font-medium text-xl" for="filter_key_word">{{ "form.message" |trans }}</label>
-						<textarea class="bg-gray-light min-h-[150px] dark:bg-gray-dark focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow  p-2 rounded " id="filter_key_word" name="filter_key_word" type="filter_key_word"></textarea>
-					</div>
-					<div class="flex flex-col gap-2 mt-2 w-full items-center ">
-						<button class="btn btn--primary" type="submit">{{ "form.submit" |trans }}</button>
-					</div>
 
-				</form>
+				{{ form_start(form, {'attr': {'class': 'flex flex-col gap-6 w-full'}}) }}
+				<div class="w-full flex flex-col gap-2">
+					{{ form_label(form.name) }}
+					{{ form_widget(form.name) }}
+					<div class="text-sm text-red-600">
+						{{ form_errors(form.name) }}
+					</div>
+				</div>
+				<div class="w-full flex flex-col gap-2">
+					{{ form_label(form.email) }}
+					{{ form_widget(form.email) }}
+					<div class="text-sm text-red-600">
+						{{ form_errors(form.email) }}
+					</div>
+				</div>
+				<div class="w-full flex flex-col gap-2">
+					{{ form_label(form.subject) }}
+					{{ form_widget(form.subject) }}
+					<div class="text-sm text-red-600">
+						{{ form_errors(form.subject) }}
+					</div>
+				</div>
+				<div class="w-full flex flex-col gap-2">
+					{{ form_label(form.content) }}
+					{{ form_widget(form.content) }}
+					<div class="text-sm text-red-600">
+						{{ form_errors(form.content) }}
+					</div>
+				</div>
+
+				{{ form_end(form) }}
 			</div>
 		</div>
 	</section>
