@@ -65,30 +65,34 @@
 				<div class="w-full flex flex-col gap-2">
 					{{ form_label(form.name) }}
 					{{ form_widget(form.name) }}
-					<div class="text-sm text-red-600">
+					<div class="text-sm text-red-600 dark:text-red-500">
 						{{ form_errors(form.name) }}
 					</div>
 				</div>
 				<div class="w-full flex flex-col gap-2">
 					{{ form_label(form.email) }}
 					{{ form_widget(form.email) }}
-					<div class="text-sm text-red-600">
+					<div class="text-sm text-red-600 dark:text-red-500">
 						{{ form_errors(form.email) }}
 					</div>
 				</div>
 				<div class="w-full flex flex-col gap-2">
 					{{ form_label(form.subject) }}
 					{{ form_widget(form.subject) }}
-					<div class="text-sm text-red-600">
+					<div class="text-sm text-red-600 dark:text-red-500">
 						{{ form_errors(form.subject) }}
 					</div>
 				</div>
 				<div class="w-full flex flex-col gap-2">
 					{{ form_label(form.content) }}
 					{{ form_widget(form.content) }}
-					<div class="text-sm text-red-600">
+					<div class="text-sm text-red-600 dark:text-red-500">
 						{{ form_errors(form.content) }}
 					</div>
+				</div>
+
+				<div class="w-full flex flex-col gap-2 mt-2 items-center">
+					{{ form_widget(form.send) }}
 				</div>
 
 				{{ form_end(form) }}

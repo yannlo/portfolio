@@ -1,0 +1,40 @@
+{% extends 'main/contact/emails/base.html.twig' %}
+
+{% block body %}
+
+	<section class='w-full flex flex-col max-w-7xl mx-auto gap-16 py-24 px-6 md:px-20 xl:px-0 lg:py-32 '>
+		{% if app.locale == "fr" %}
+			<p class="mb-4">
+				Bonjour
+				{{" "~ email.toName }},
+			</p>
+			<p class="mb-4">
+				J'ai bien reçu votre message,<br>
+				Et je suis très heureux de l'intérêt que vous me porter.
+			</p>
+			<p class="mb-4">
+				je lirai avec attention votre message afin de vous répondre dans les plus brefs délais.
+			</p>
+			<p class="mb-4">
+				Merci et bonne journée.
+			</p>
+		{% else %}
+			<p class="mb-4">
+
+				Hello
+				{{" "~ email.toName }}
+			</p>
+			<p class="mb-4">
+				I have received your message,<br>
+				And I am very pleased with your interest in me.
+			</p>
+			<p class="mb-4">
+				I will read your message carefully and get back to you as soon as possible.
+			</p>
+			<p class="mb-4">
+				Thank you and have a nice day.
+			</p>
+		{% endif %}
+
+	</section>
+{% endblock %}

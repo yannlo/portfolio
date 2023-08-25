@@ -1,0 +1,19 @@
+{% if app.locale == "fr" %}
+	Bonjour {{" "~ email.toName }},
+
+	J'ai bien reçu votre message,
+	Et je suis très heureux de l'intérêt que vous me porter.
+
+	je lirai avec attention votre message afin de vous répondre dans les plus brefs délais.
+    
+	Merci et bonne journée.
+{% else %}
+	Hello {{" "~ email.toName }}
+
+	I have received your message,
+	And I am very pleased with your interest in me.
+
+	I will read your message carefully and get back to you as soon as possible.
+    
+	Thank you and have a nice day.
+{% endif %}

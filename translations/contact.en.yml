@@ -4,7 +4,9 @@ message: "Please don't hesitate to contact me, if you have any questions about m
 
 details: "My contact details"
 
-confirm.send: "The message is sent"
+confirm:
+    send: "The message is sent"
+    subject: "Thank you for contacting me"
 
 form: 
     title: "Contact form"

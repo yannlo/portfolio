@@ -10,6 +10,13 @@ parameters:
     app.main.locale_cookie_name: 'currentLocale'
 
     app.main.default_theme: 'dark'
+
+    app.address.admin: 'yannlo.795@gmail.com'
+    app.address.contact: 'contact@yannlo.com'
+    app.address.bot: {
+        "name": "Yann-loïc",
+        "email": 'bot@yannlo.com'
+    }
     
     router.request_context.scheme: 'https'
     asset.request_context.secure: true

@@ -4,7 +4,9 @@ message: "N'hésitez pas à me contacter, si vous avez d'éventuelles questions 
 
 details: "Mes coordonnées"
 
-confirm.send: "Le message est envoyé"
+confirm:
+    send: "Le message est envoyé"
+    subject: "Merci de m'avoir contacté"
 
 form: 
     title: "Formulaire de contact"

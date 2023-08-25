@@ -69,14 +69,14 @@ class ProjectController extends AbstractController
             return $response;
         }
 
-        
-        if($id !== 1){
+
+        if ($id !== 1) {
             throw $this->createNotFoundException();
         }
 
-        if($slug !== 'yannlo'){
+        if ($slug !== 'yannlo') {
             return $this->redirectToRoute('app_project_show', [
-                "slug" => "yannlo", 
+                "slug" => "yannlo",
                 "id" => 1
             ]);
         }

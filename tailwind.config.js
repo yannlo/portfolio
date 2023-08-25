@@ -11,9 +11,13 @@ module.exports = {
   ],
 
   safelist: [
+    "focus-visible:ring",
+    "focus:outline-none",
+    "focus:ring",
+    "ring-red",
+    "dark:ring-yellow",
+    "p-2",
     "min-h-[150px]",
-    "mb-6",
-    "mb-8",
     "w-2/12",
     "w-3/12",
     "w-4/12",
