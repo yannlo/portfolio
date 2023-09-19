@@ -12,15 +12,19 @@ class ThemeProvider
         RequestStack $request,
         string $defaultTheme
     ) {
-        $theme = $request -> getCurrentRequest() -> cookies -> get('theme');
-        if (is_null($theme)) {
-            $theme = $defaultTheme;
+        $theme = $defaultTheme;
+        if (
+            !is_null($request->getCurrentRequest()->cookies)
+            && !is_null($request->getCurrentRequest()->cookies->get('theme'))
+        ) {
+            $theme = $request->getCurrentRequest()->cookies->get('theme');
         }
-        $this -> theme = $theme;
+
+        $this->theme = $theme;
     }
 
     public function get()
     {
-        return $this ->theme;
+        return $this->theme;
     }
 }
