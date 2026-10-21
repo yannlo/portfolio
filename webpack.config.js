@@ -1,5 +1,5 @@
-/* eslint-disable no-undef */
-const Encore = require('@symfony/webpack-encore');
+ 
+const Encore = require('@symfony/webpack-encore').default;
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -77,9 +77,6 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
-
-    // configure ESlint    
-    .enableEslintPlugin()
 
     // configure Babel
     // .configureBabel((config) => {

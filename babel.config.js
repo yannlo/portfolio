@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+ 
 module.exports = {
     "sourceType": "unambiguous",
     "presets": [
@@ -8,13 +8,18 @@ module.exports = {
                 "modules": false,
                 "targets": {
                     "node": 'current'
-                },
-                "useBuiltIns": "usage",
-                "corejs": "3.23"
+                }
             }
         ]
     ],
     "plugins": [
-        "@babel/plugin-transform-modules-commonjs"
+        "@babel/plugin-transform-modules-commonjs",
+        [
+            "babel-plugin-polyfill-corejs3",
+            {
+                "method": "usage-global",
+                "version": "3.50"
+            }
+        ]
     ]
 }

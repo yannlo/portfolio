@@ -1,0 +1,8 @@
+node_modules
+vendor
+var
+tests
+.env.local
+.env.*.local
+.git
+public/build

@@ -1,8 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@config "../../tailwind.config.js";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source inline("focus-visible:ring focus:outline-none focus:ring ring-red dark:ring-yellow p-2 min-h-[150px] w-2/12 w-3/12 w-4/12 w-5/12 w-6/12 w-7/12 w-8/12 w-9/12 w-10/12 w-11/12 w-12/12");
 
 @layer components {
     .btn{
