@@ -12,13 +12,7 @@ class ThemeProvider
         RequestStack $request,
         string $defaultTheme
     ) {
-        $theme = $defaultTheme;
-        if (
-            !is_null($request->getCurrentRequest()->cookies)
-            && !is_null($request->getCurrentRequest()->cookies->get('theme'))
-        ) {
-            $theme = $request->getCurrentRequest()->cookies->get('theme');
-        }
+        $theme = $request->getCurrentRequest()?->cookies->get('theme') ?? $defaultTheme;
 
         $this->theme = $theme;
     }

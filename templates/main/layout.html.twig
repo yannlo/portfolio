@@ -3,7 +3,9 @@
 {% block content %}
 {{ include("./main/assets/layouts/_header.html.twig") }}
 <main class="mt-20 lg:mt-[5.5rem] min-h-screen">
-{% block main %}{% endblock %}
+{{ block('main') }}
 </main>
 {{ include("./main/assets/layouts/_footer.html.twig") }}
 {% endblock %}
+
+{% block main %}{% endblock %}
