@@ -12,14 +12,15 @@ FROM dunglas/frankenphp:php8.5
 WORKDIR /app
 
 RUN install-php-extensions pdo_pgsql intl opcache zip
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+ENV APP_ENV=prod APP_DEBUG=0 SERVER_NAME=":80"
 
 COPY composer.json composer.lock symfony.lock ./
-RUN composer install --no-dev --no-scripts --prefer-dist || true
+RUN composer install --no-dev --no-scripts --prefer-dist
 
 COPY . .
-RUN composer install --no-dev --optimize-autoloader --no-scripts \
- && php bin/console cache:clear --env=prod --no-debug
+RUN composer install --no-dev --optimize-autoloader
+# les auto-scripts composer exécutent cache:clear + assets:install
 
 COPY --from=assets /app/public/build ./public/build
-
-ENV APP_ENV=prod SERVER_NAME=":80"
