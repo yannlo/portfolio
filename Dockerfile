@@ -5,6 +5,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 COPY webpack.config.js postcss.config.js tailwind.config.js ./
 COPY assets ./assets
+COPY templates ./templates
 RUN npm run build        # produit public/build
 
 # ── Stage 2 : app PHP ─────────────────────────────────────
